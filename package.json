@@ -1,5 +1,7 @@
 {
   "name": "UoN-Bot",
+  "description": "A chat-bot to help plan the academic life of University Students.",
+  "license": "MIT",
   "version": "0.0.1",
   "dependencies": {
     "aimlinterpreter": "^0.1.7",

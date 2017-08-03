@@ -62,7 +62,7 @@ function getBotReply(input, callback) {
         type: "POST",
         url: "localhost",
         async: true,
-        data: String(input).trim().toUpperCase(), // TODO move the uppercase conversion to the server so that searching works properly
+		data: String(input).trim().toUpperCase(),
         contentType: "text",
         dataType: "text",
         success: (message) => {
