@@ -1,0 +1,227 @@
+{
+  "coatesBuilding": {
+    "locationName": "Coates Building",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/2/groupid/37"
+    ],
+    "coordinates": [
+      52.940964,
+      -1.189346
+    ]
+  },
+  "engineeringAndScience": {
+    "locationName": "Engineering and Science Learning Centre",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/2/groupid/33"
+    ],
+    "coordinates": [
+    ]
+  },
+  "georgeGreen": {
+    "locationName": "George Green",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/2/groupid/38"
+    ],
+    "coordinates": [
+      52.940999,
+      -1.190954
+    ]
+  },
+  "hallward": {
+    "locationName": "Hallward Library",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/39/groupid/110",
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/39/groupid/111",
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/39/groupid/112",
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/39/groupid/113"
+    ],
+    "coordinates": [
+      52.938896,
+      -1.197088
+    ]
+  },
+  "hallwardL1": {
+    "locationName": "Hallward Library Level 1",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/39/groupid/110"
+    ]
+  },
+  "hallwardL2": {
+    "locationName": "Hallward Library Level 2",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/39/groupid/111"
+    ]
+  },
+  "hallwardL3": {
+    "locationName": "Hallward Library Level 3",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/39/groupid/112"
+    ]
+  },
+  "hallwardL4": {
+    "locationName": "Hallward Library Level 4",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/39/groupid/113"
+    ]
+  },
+  "humanities": {
+    "locationName": "Humanities",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/2/groupid/40"
+    ],
+    "coordinates": [
+      52.936671,
+      -1.204754
+    ]
+  },
+  "lawAndSocialSciences": {
+    "locationName": "Law and Social Sciences",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/2/groupid/41"
+    ],
+    "coordinates": [
+      52.938577,
+      -1.198227
+    ]
+  },
+  "lentonGrove": {
+    "locationName": "Lenton Grove",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/2/groupid/42"
+    ],
+    "coordinates": [
+      52.935772,
+      -1.203736
+    ]
+  },
+  "lifeSciences": {
+    "locationName": "Life Sciences",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/2/groupid/35"
+    ],
+    "coordinates": [
+      52.940308,
+      -1.190741
+    ]
+  },
+  "mathematicalScience": {
+    "locationName": "Mathematical Science",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/2/groupid/43"
+    ],
+    "coordinates": [
+      52.940692,
+      -1.192167
+    ]
+  },
+  "popeBuilding": {
+    "locationName": "Pope Building",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/2/groupid/44"
+    ],
+    "coordinates": [
+      52.9412,
+      -1.189672
+    ]
+  },
+  "portlandBuilding": {
+    "locationName": "Portland Building",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/2/groupid/34"
+    ],
+    "coordinates": [
+      52.937958,
+      -1.194111
+    ]
+  },
+  "cliveGranger": {
+    "locationName": "Clive Granger",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/2/groupid/7"
+    ],
+    "coordinates": [
+      52.939943,
+      -1.194327
+    ]
+  },
+  "trentBuilding": {
+    "locationName": "Trent Building",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/2/groupid/46"
+    ],
+    "coordinates": [
+      52.936933,
+      -1.196107
+    ]
+  },
+  "jubileeBusinessSchoolSouth": {
+    "locationName": "Jubilee Business School South",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/6/groupid/19"
+    ],
+    "coordinates": [
+      52.951613,
+      -1.186519
+    ]
+  },
+  "jubileeDearingBuilding": {
+    "locationName": "Jubilee Dearing Building",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/6/groupid/17"
+    ],
+    "coordinates": [
+      52.952559,
+      -1.186907
+    ]
+  },
+  "djanoglyLearningResource": {
+    "locationName": "Djanogly Learning and Resource Centre",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/6/groupid/13"
+    ],
+    "coordinates": [
+      52.953713,
+      -1.188377
+    ]
+  },
+  "qmcGreenfieldMedicalLibary": {
+    "locationName": "QMC Greenfield Medical Library",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/21/groupid/30"
+    ],
+    "coordinates": [
+      52.942007,
+      -1.185808
+    ]
+  },
+  "qmcMedicalSchool": {
+    "locationName": "QMC Medical School",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/21/groupid/31"
+    ],
+    "coordinates": [
+      52.942639,
+      -1.185748
+    ]
+  },
+  "sbGatewayBuilding": {
+    "locationName": "Sutton Bonington Gateway Building",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/4/groupid/152"
+    ],
+    "coordinates": [
+      52.8292758,
+      -1.2497006
+    ]
+  },
+  "sbMainBuilding": {
+    "locationName": "Sutton Bonington Main Building",
+    "links": [
+      "http://pcfinder.nottingham.ac.uk/index/buildings/parentgroupid/4/groupid/54"
+    ],
+    "coordinates": [
+      52.829773,
+      -1.251561
+    ]
+  }
+}

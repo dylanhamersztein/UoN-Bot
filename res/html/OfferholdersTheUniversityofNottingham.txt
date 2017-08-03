@@ -1,0 +1,42 @@
+ UK China Malaysia Main Menu Study Research Business Global About A-Z Search You are here: University of NottinghamComputer ScienceStudy with usUndergraduate degreesOffer holders School of Computer Science HomeAbout the School Study with us Undergraduate degrees Fees and scholarshipsUndergraduate projectsUndergraduate student profiles Offer holders Masters degreesPostgraduate researchStudy AbroadEU StudentsAlumniAlumni profilesCareers and employabilityDisability informationInternational studentsVisiting usNew and returning students ResearchEquality and DiversityOutreach ActivitiesWorking with industryPeopleEventsNewsContact us Print Email this Page School Intranet Portal Search this Section Offer holders Congratulations on being offered a place here in the School of Computer Science at Nottingham! For the last two years, the School has been voted by students as 'Best School' at the UoN Staff Oscars.
+It's certainly humbling for us but it does imply that we must be doing something right! While a world-class education is something of a 'given' at Nottingham, we boast a school of educational marathon runners who see going the extra mile for our students as part of what they do.
+The department is a friendly and vibrant place and we are proud to have an environment where Academics, Support Staff and students need very little encouragement to mingle with one another.
+It's a cultivated community here and we're glad you're going to be a part of it.
+Perhaps the good vibes are partly due to our frequent socials, such as coffee and cake events held every couple of weeks.
+We hold other events annually to celebrate Christmas and Chinese New Year and to mark milestones such as Week One and graduation, we often use these as excuses *ahem*, reasons to cater for the whole School.
+Staff and students are able to meet informally and talk about things besides computing, although it never takes long to get back onto it! We're always excited by the prospect of welcoming the new cohorts of students every September.
+From the first week of your degree until the day you graduate, we're a School that does its very best to make university life unforgettable.
+Keep in touch We'd love to hear from you and are happy to receive any queries you might have! Follow us on Twitter Like our Facebook Page or the good old fashioned ways: +44 (0)115 8466550 admissions@cs.nott.ac.uk Offer Holders See you soon! Prof.
+Uwe Aickelin at the 2014 Welcome Event Read the Computer Science Newsletter here [pdf] Download the School of Computer Science Undergraduate Brochure here [pdf].
+Click here to view the University of Nottingham Offer Holders guide This page is chock-full of useful links to all information you might need before commencing your studies.
+What to expect in your first year First year at a glance Even if you've never been taught any programming before, you don't need to worry! We've tailored our first year to accommodate everyone, regardless of their programming prowess.
+Naturally, this does not mean that the first year will not be a challenge for those who have programming experience.
+Topics that may have been covered at Level 3 will be tackled in much greater depth and new themes and topics will be introduced.
+Following a curriculum review, all of our courses (with the exception of Data Science) now have an identical first year.
+This means that all students will have covered all of the foundations of computing to which will then allow you to decide where your degree will take you.
+The first year now meets and exceeds academic standards suggested by three leading computing organisations: British Computing Society (BCS) Institute of Electrical and Electronics Engineers (IEEE) ACM (Association for Computing Machinery) Course Structure & Modules You'll cover a broad range of topics in your first year, these include: maths for computer science, artificial intelligence, functional programming (Haskell), procedural programming, C (including pointers), machine code and computer architectures, databases and object oriented programming, and Java.
+Using the links below, you can read detailed breakdowns of the content taught on every course and every module in the School.
+Programme Specifications Simply type in the UCAS code for your degree or search by School Module Catalogue Search the Module Catalogue using the module codes in your Programme Spec Although I had a fair understanding of basic concepts in computer science, my experience of actual programming was almost non-existent.
+Fortunately, such fears were quickly laid to rest.
+The first year at Nottingham is structured such that everyone starts at the same level.
+Simon Furber BSc Computer Science What do I need to bring with me? Laptops While not essential to study, many students find it useful to bring their own laptops and other devices.
+Some students decide to have a PC set up in their residence for private study and use our facilities when in the building.
+With so many students bringing their own devices and increasingly more students 'dual wielding' their devices with our PCs, we've redesigned our labs and common areas to include more desk space and tons and tons of plug sockets! There are well over a hundred powerful Windows PC terminals (also running Linux) throughout the three labs in the School and these are made available exclusively to Computer Science students.
+We also have a cluster of Macs and portable devices to lend.
+To add to that, the university has other computer facilities across the campuses in designated computer rooms and libraries.
+Books It almost seems like a rite of passage to get clicking on Amazon and gather all the books you'll need for uni.
+However, we'd strongly suggest resisting that urge and wait until you get here before you buy books.
+You'll probably find that much of the reading you'll be expected to do is available as a free resource to students here, particularly when the textbooks on particular subjects were written by our own academics! Despite all of this, out of curiosity, many new students like to see the sort of thing they'll be reading before they get here.
+Using the programme specification for your course, you can find a list of modules and you can search for the reading list by entering the module codes here: readinglists.nottingham.ac.uk Visiting us Virtual Tour of Jubilee Campus We'd encourage every offer holder to visit the School of Computer Science before they come here in September.
+The Visit Day encompasses a visit to University Park as a chance to tell you a little about Nottingham.
+Following the morning session at University Park, you'll be whisked to Jubilee Campus by one of our students to have lunch with us and chat with academics and students.
+You'll then hear a presentation about studying in Computer Science and have a chance to speak with teaching staff in small groups with other applicants.
+We run UCAS Visit Days between January and April.
+If you have an offer, you can check Visit Day availability by logging into the Applicants Portal.
+If you missed the UCAS Visit Days but would still like to visit, don't worry! Just get in touch and we can make alternative arrangements for you to visit.
+Societies in the School Comp Soc provide a social group for Computer Science students, to promote interest in current and past technology and to aid student interaction between different years of study and areas of interest.
+The society forms a community for computer scientists who want to learn new things and have a group within the School to fall back on if things get rough! CompSoc & HackSoc HackSoc is a society dedicated to providing for Hackers or aspiring Hackers at the University of Nottingham.
+They run a variety of regular events, covering tutorials, themed hackathons, competitions and an algorithms team for ACM style contests.
+We also regularly attend events across the country, such as Hacked.io and Space Apps.
+School of Computer Science University of NottinghamJubilee CampusWollaton Road Nottingham, NG8 1BB For all enquires please visit: www.nottingham.ac.uk/enquire Legal information Copyright Terms and conditions Privacy Posting rules Accessibility Freedom of information Charity gateway Cookie policy Get social Connect with the University of Nottingham through social media and our blogs.
+Campus maps | More contact information | Jobs

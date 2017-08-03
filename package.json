@@ -1,0 +1,13 @@
+{
+  "name": "UoN-Bot",
+  "version": "0.0.1",
+  "dependencies": {
+    "aimlinterpreter": "^0.1.7",
+    "moment-timezone": "^0.5.13",
+    "cookies": "^0.7.0",
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.81.0",
+    "simplecrawler": "^1.1.4",
+    "find-in-files": "^0.4.0"
+  }
+}

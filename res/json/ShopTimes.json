@@ -1,0 +1,44 @@
+{
+  "SPAR": {
+    "PORTLAND": {
+      "weekday": {
+        "opening_time": 830,
+        "closing_time": 2130
+      },
+      "saturday": {
+        "opening_time": 900,
+        "closing_time": 1700
+      },
+      "sunday": {
+        "opening_time": 1100,
+        "closing_time": 1700
+      }
+    },
+    "JUBILEE": {
+      "weekday": {
+        "opening_time": 830,
+        "closing_time": 2130
+      },
+      "saturday": {
+        "opening_time": 900,
+        "closing_time": 2130
+      },
+      "sunday": {
+        "opening_time": 1300,
+        "closing_time": 1700
+      }
+    }
+  },
+  "BOOTS": {
+    "PORTLAND": {
+      "week": {
+        "opening_time": 830,
+        "closing_time": 1900
+      },
+      "saturday": {
+        "opening_time": 900,
+        "closing_time": 1600
+      }
+    }
+  }
+}

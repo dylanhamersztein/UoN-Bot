@@ -1,0 +1,52 @@
+#chatbox {
+    height: 400px;
+    width: 560px;
+    background-color: #EAEAEA;
+    border: 2px solid black;
+    overflow-y: auto;
+}
+
+#userMessage {
+    margin-right: 1%;
+    background-color: #4CAF50;
+}
+
+#botMessage {
+    margin-left: 1%;
+    background-color: #E0E0E0;
+}
+
+.message {
+    line-height: normal;
+    padding: 5px 10px 20px;
+
+    text-align: justify;
+
+    height: auto;
+    width: 66%;
+
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+.button {
+    display: block;
+
+    font-size: 26px;
+
+    height: 60px;
+    width: 145px;
+
+    background-color: #e7e7e7;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+
+    transition-duration: 0.3s;
+
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #4CAF50;
+}
+

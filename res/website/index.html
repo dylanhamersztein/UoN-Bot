@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UoNBot</title>
+
+    <!-- script for handling user input etc -->
+    <script src="script.js" type="application/javascript"></script>
+
+    <!-- jQuery script -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!-- CSS document -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+<div id="chatbox"></div>
+
+<div id="inputDiv">
+    <table>
+        <tr>
+            <td><textarea id="userInput" rows="8" cols="56" autofocus
+                          placeholder="Enter your question here, or type 'help' to see a list of commands."></textarea>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <button onclick="getUserInput()" id="submitButton" class="button" type="button">Submit
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button onclick="exit()" id="exitButton" class="button" type="button">Exit</button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

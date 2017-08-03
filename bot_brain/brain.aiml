@@ -1,0 +1,1840 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<aiml>
+    <!-- saying hello -->
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            <random>
+                <li>Hi there!</li>
+                <li>Hello!</li>
+                <li>Hi!</li>
+                <li>Hi, what can I help you with?</li>
+                <li>Hey, how's it going?</li>
+                <li>Hi.</li>
+                <li>Hello.</li>
+                <li>Greetings!</li>
+                <li>Salutations!</li>
+                <li>Welcome!</li>
+                <li>Howdy!</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>HI</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOOD DAY</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GREETINGS *</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>HALLO</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>HALO</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>HELLOW</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>HELO</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>HEY THERE</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>HIYA</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>HOI</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>HOWDIE *</pattern>
+        <template>
+            <srai>hello</srai>
+            <sr/>
+        </template>
+    </category>
+    <category>
+        <pattern>HOWDY</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>HULLO</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>IS ANYONE THERE</pattern>
+        <template>
+            <srai>hello</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>HELLO HOW ARE YOU</pattern>
+        <template>I am fine thank you how are you?</template>
+    </category>
+    <category>
+        <pattern>HOW IS EVERYONE *</pattern>
+        <template>We are all fine as far as I know.</template>
+    </category>
+
+    <!-- saying goodbye -->
+    <category>
+        <pattern>BYE</pattern>
+        <template>
+            <random>
+                <li>Bye.</li>
+                <li>Adios.</li>
+                <li>Goodbye.</li>
+                <li>Bye bye.</li>
+                <li>Goodbye.</li>
+                <li>Sayonara.</li>
+                <li>Bye for now.</li>
+                <li>See you later!</li>
+                <li>See you later.</li>
+                <li>Until next time.</li>
+                <li>TTYL</li>
+                <li>See you later!</li>
+                <li>Thanks for chatting!</li>
+            </random>
+        </template>
+    </category>
+    <category>
+        <pattern>* BYE</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>BUHBYE</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>BY BY</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>BYE *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>BYE BYE *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>BYE BYE</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>BYEBYE *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>BYEBYE</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>C YA</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>CATCH YOU LATER</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>CHEERS</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>CYA *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>DISCONNECT ME</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>END</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>EXIT</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>FAREWELL *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>FAREWELL</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>G NIGHT</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>G2G</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GET LOST</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GO HOME</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOOD BY</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOOD BYE *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOOD BYE</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOODBY</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOODBYE *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOODBYE</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOODBYE</pattern>
+        <that>SEE YOU LATER</that>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOODNIGHT *</pattern>
+        <template>
+            <srai>goodnight</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOODNIGHT</pattern>
+        <template>Goodnight
+            <get name="name"/>
+        </template>
+    </category>
+    <category>
+        <pattern>GOODNITE *</pattern>
+        <template>
+            <srai>goodnight</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOT TO GO *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOT TO GO</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOTTA GO *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GOTTA GO</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>GTG</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>HAVE A GOOD NIGHT</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>HAVE TO GO</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I AM GOING TO GO</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I AM LEAVING *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I AM OFF *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I BETTER GO</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I DO NOT WANT TO TALK *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I G TWO G</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I G2G</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I GO</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I GOING</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I GOT TO GO</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I GOTTA GO</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I HAVE GOT TO GO</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I HAVE TO GET GOING</pattern>
+        <template>
+            <srai>goodbye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I HAVE TO GO BYE</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I HAVE TO LEAVE *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I HAVE TO LEAVE</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I MUST BE GOING *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I MUST GO *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I MUST GO</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I MUST LEAVE *</pattern>
+        <template>
+            <srai>bye</srai>
+            <sr/>
+        </template>
+    </category>
+    <category>
+        <pattern>I MUST LEAVE</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I NEED TO GO</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>I QUIT</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>IT IS GOOD TALKING TO YOU</pattern>
+        <template>Nice chatting with you too,<get name="name"/>.
+        </template>
+    </category>
+    <category>
+        <pattern>LEAVE *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>LEAVE</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>MY PLEASRE</pattern>
+        <template>The pleasure was indeed mine.</template>
+    </category>
+    <category>
+        <pattern>NIGHTY *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>SEE YOU *</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>SEE YOU LATER</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>SEE YOU SOON</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>SEE YOU</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>TIME TO GO</pattern>
+        <template>
+            <srai>bye</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>_ BYE</pattern>
+        <template>See you later.
+            <sr/>
+        </template>
+    </category>
+
+    <!-- information about the university's address -->
+    <category>
+        <pattern>* UNIVERSITY ADDRESS</pattern>
+        <template>The University of Nottingham, University Park, Nottingham. NG7 2RD</template>
+    </category>
+    <category>
+        <pattern>UNI ADDRESS</pattern>
+        <template>
+            <srai>UNIVERSITY ADDRESS</srai>
+        </template>
+    </category>
+    <category>
+        <pattern>WHERE IS THE UNIVERSITY *</pattern>
+        <template>
+            <srai>UNIVERSITY ADDRESS</srai>
+        </template>
+    </category>
+
+    <!-- information about the university's website -->
+    <category>
+        <pattern>* UNIVERSITY WEBSITE</pattern>
+        <template>https://www.nottingham.ac.uk/index.aspx</template>
+    </category>
+    <category>
+        <pattern>UNI WEBSITE</pattern>
+        <template>
+            <srai>UNIVERSITY WEBSITE</srai>
+        </template>
+    </category>
+
+    <!-- help text -->
+    <category>
+        <pattern>HELP</pattern>
+        <template>
+            Enter any of the following commands (in capital letters), or ask any of the questions listed below:
+            HELP: Help guide for UoN-Bot.
+            MODULE PROGRESSION: A tool to calculate your current progression in a given module.
+            DEGREE PROGRESSION: A tool for CS students to calculate whether or not they can progress in their degree.
+            Ask about bus times.
+            Ask about free PCs around campus.
+            Ask about opening times for shops around campus.
+            Search for staff email, phone number, or department information.
+        </template>
+    </category>
+
+    <!-- this sentence structure will search for bus times based on the values of the asterisks -->
+    <category>
+        <pattern>WHEN DOES THE * LEAVE *</pattern>
+        <template>
+            SCRIPT:BusTimes.getNextBusTime(undefined,wildCardArray[0],wildCardArray[1]);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHEN DOES THE FIRST * STOP AT *</pattern>
+        <template>
+            SCRIPT:BusTimes.getNextBusTime("start",wildCardArray[0],wildCardArray[1]);
+        </template>
+    </category>
+    <category>
+        <pattern>WHEN DOES THE LAST * STOP AT *</pattern>
+        <template>
+            SCRIPT:BusTimes.getNextBusTime("end",wildCardArray[0],wildCardArray[1]);
+        </template>
+    </category>
+
+    <!-- for enquiries about staff details -->
+    <category>
+        <pattern>WHAT IS *'S EMAIL</pattern>
+        <template>
+            SCRIPT:StaffSearch.search(wildCardArray[0],"_email",request,response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS *'S PHONE NUMBER</pattern>
+        <template>
+            SCRIPT:StaffSearch.search(wildCardArray[0],"_externalPhone",request,response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT DEPARTMENT IS * IN</pattern>
+        <template>
+            SCRIPT:StaffSearch.search(wildCardArray[0],"_department",request,response);
+        </template>
+    </category>
+
+    <!-- shop opening times -->
+    <category>
+        <pattern>IS THE * OPEN</pattern>
+        <template>
+            SCRIPT:ShopTimes.isOpen(wildCardArray[0]);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHEN DOES THE * OPEN</pattern>
+        <template>
+            SCRIPT:ShopTimes.getOpeningTime(wildCardArray[0]);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHEN DOES THE * CLOSE</pattern>
+        <template>
+            SCRIPT:ShopTimes.getClosingTime(wildCardArray[0]);
+        </template>
+    </category>
+
+    <!-- campus PC availability -->
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT COATES</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("coatesBuilding",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT COATES</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at coates</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN THE COATES BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at coates</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT COATES</pattern>
+        <template>
+            <srai>how many pcs are available at coates</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT COATES</pattern>
+        <template>
+            <srai>how many pcs are available at coates</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT COATES</pattern>
+        <template>
+            <srai>how many pcs are available at coates</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT ENGINEERING AND SCIENCE LEARNING CENTRE</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("engineeringAndScience",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT ENGINEERING AND SCIENCE LEARNING CENTRE</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at engineering and science learning centre</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN THE ENGINEERING AND SCIENCE LEARNING CENTRE BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at engineering and science learning centre</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT ENGINEERING AND SCIENCE LEARNING CENTRE</pattern>
+        <template>
+            <srai>how many pcs are available at engineering and science learning centre</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT ENGINEERING AND SCIENCE LEARNING CENTRE</pattern>
+        <template>
+            <srai>how many pcs are available at engineering and science learning centre</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT ENGINEERING AND SCIENCE LEARNING CENTRE</pattern>
+        <template>
+            <srai>how many pcs are available at engineering and science learning centre</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT GEORGE GREEN</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("georgeGreen",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT GEORGE GREEN</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at george green</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN THE ENGINEERING AND SCIENCE LEARNING CENTRE BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at george green</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT GEORGE GREEN</pattern>
+        <template>
+            <srai>how many pcs are available at george green</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT GEORGE GREEN</pattern>
+        <template>
+            <srai>how many pcs are available at george green</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT GEORGE GREEN</pattern>
+        <template>
+            <srai>how many pcs are available at george green</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT HALLWARD</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("hallward",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT HALLWARD</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at hallward</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN HALLWARD</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at hallward</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT HALLWARD</pattern>
+        <template>
+            <srai>how many pcs are available at hallward</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT HALLWARD</pattern>
+        <template>
+            <srai>how many pcs are available at hallward</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT HALLWARD</pattern>
+        <template>
+            <srai>how many pcs are available at hallward</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT HALLWARD LEVEL 1</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("hallwardL1",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT HALLWARD LEVEL 1</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at hallward level 1</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN HALLWARD LEVEL 1</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at hallward level 1</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT HALLWARD LEVEL 1</pattern>
+        <template>
+            <srai>how many pcs are available at hallward level 1</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT HALLWARD LEVEL 1</pattern>
+        <template>
+            <srai>how many pcs are available at hallward level 1</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT HALLWARD LEVEL 1</pattern>
+        <template>
+            <srai>how many pcs are available at hallward level 1</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT HALLWARD LEVEL 2</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("hallwardL2",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT HALLWARD LEVEL 2</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at hallward level 2</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN HALLWARD LEVEL 2</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at hallward level 2</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT HALLWARD LEVEL 2</pattern>
+        <template>
+            <srai>how many pcs are available at hallward level 2</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT HALLWARD LEVEL 2</pattern>
+        <template>
+            <srai>how many pcs are available at hallward level 2</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT HALLWARD LEVEL 2</pattern>
+        <template>
+            <srai>how many pcs are available at hallward level 2</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT HALLWARD LEVEL 3</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("hallwardL3",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT HALLWARD LEVEL 3</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at hallward level 3</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN HALLWARD LEVEL 3</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at hallward level 3</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT HALLWARD LEVEL 3</pattern>
+        <template>
+            <srai>how many pcs are available at hallward level 3</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT HALLWARD LEVEL 3</pattern>
+        <template>
+            <srai>how many pcs are available at hallward level 3</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT HALLWARD LEVEL 3</pattern>
+        <template>
+            <srai>how many pcs are available at hallward level 3</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT HALLWARD LEVEL 4</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("hallwardL4",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT HALLWARD LEVEL 4</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at hallward level 4</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN HALLWARD LEVEL 4</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at hallward level 4</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT HALLWARD LEVEL 4</pattern>
+        <template>
+            <srai>how many pcs are available at hallward level 4</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT HALLWARD LEVEL 4</pattern>
+        <template>
+            <srai>how many pcs are available at hallward level 4</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT HALLWARD LEVEL 4</pattern>
+        <template>
+            <srai>how many pcs are available at hallward level 4</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT HUMANITIES</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("humanities",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT HUMANITIES</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at humanities</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN HUMANITIES</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at humanities</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT HUMANITIES</pattern>
+        <template>
+            <srai>how many pcs are available at humanities</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT HUMANITIES</pattern>
+        <template>
+            <srai>how many pcs are available at humanities</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT HUMANITIES</pattern>
+        <template>
+            <srai>how many pcs are available at humanities</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT LAW AND SOCIAL SCIENCES</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("lawAndSocialSciences",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT LAW AND SOCIAL SCIENCES</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at law and social sciences</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN LAW AND SOCIAL SCIENCES</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at law and social sciences</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT LAW AND SOCIAL SCIENCES</pattern>
+        <template>
+            <srai>how many pcs are available at law and social sciences</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT LAW AND SOCIAL SCIENCES</pattern>
+        <template>
+            <srai>how many pcs are available at law and social sciences</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT LAW AND SOCIAL SCIENCES</pattern>
+        <template>
+            <srai>how many pcs are available at law and social sciences</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT LENTON GROVE</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("lentonGrove",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT LENTON GROVE</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at lenton grove</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN LENTON GROVE</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at lenton grove</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT LENTON GROVE</pattern>
+        <template>
+            <srai>how many pcs are available at lenton grove</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT LENTON GROVE</pattern>
+        <template>
+            <srai>how many pcs are available at lenton grove</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT LENTON GROVE</pattern>
+        <template>
+            <srai>how many pcs are available at lenton grove</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT LIFE SCIENCES</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("lifeSciences",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT LIFE SCIENCES</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at life sciences</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN LIFE SCIENCES</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at life sciences</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT LIFE SCIENCES</pattern>
+        <template>
+            <srai>how many pcs are available at life sciences</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT LIFE SCIENCES</pattern>
+        <template>
+            <srai>how many pcs are available at life sciences</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT LIFE SCIENCES</pattern>
+        <template>
+            <srai>how many pcs are available at life sciences</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT MATHEMATICAL SCIENCES</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("mathematicalSciences",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT MATHEMATICAL SCIENCES</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at mathematical sciences</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN MATHEMATICAL SCIENCES</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at mathematical sciences</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT MATHEMATICAL SCIENCES</pattern>
+        <template>
+            <srai>how many pcs are available at mathematical sciences</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT MATHEMATICAL SCIENCES</pattern>
+        <template>
+            <srai>how many pcs are available at mathematical sciences</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT MATHEMATICAL SCIENCES</pattern>
+        <template>
+            <srai>how many pcs are available at mathematical sciences</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT THE POPE BUILDING</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("popeBuilding",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT THE POPE BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the pope building</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN THE POPE BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the pope building</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT THE POPE BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the pope building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT THE POPE BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the pope building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT THE POPE BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the pope building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT THE PORTLAND BUILDING</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("portlandBuilding",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT THE PORTLAND BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the portland building</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN THE PORTLAND BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the portland building</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT THE PORTLAND BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the portland building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT THE PORTLAND BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the portland building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT THE PORTLAND BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the portland building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT CLIVE GRANGER</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("cliveGranger",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT CLIVE GRANGER</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at clive granger</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN CLIVE GRANGER</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at clive granger</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT CLIVE GRANGER</pattern>
+        <template>
+            <srai>how many pcs are available at clive granger</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT CLIVE GRANGER</pattern>
+        <template>
+            <srai>how many pcs are available at clive granger</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT CLIVE GRANGER</pattern>
+        <template>
+            <srai>how many pcs are available at clive granger</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT THE TRENT BUILDING</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("trentBuilding",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT THE TRENT BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the trent building</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN THE TRENT BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the trent building</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT THE TRENT BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the trent building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT THE TRENT BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the trent building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT THE TRENT BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the trent building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT BUSINESS SCHOOL SOUTH</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("jubileeBusinessSchoolSouth",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT BUSINESS SCHOOL SOUTH</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at business school south</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN BUSINESS SCHOOL SOUTH</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at business school south</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT BUSINESS SCHOOL SOUTH</pattern>
+        <template>
+            <srai>how many pcs are available at business school south</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT BUSINESS SCHOOL SOUTH</pattern>
+        <template>
+            <srai>how many pcs are available at business school south</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT BUSINESS SCHOOL SOUTH</pattern>
+        <template>
+            <srai>how many pcs are available at business school south</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT THE DEARING BUILDING</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("jubileeDearingBuilding",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT THE DEARING BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the dearing building</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN THE DEARING BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the dearing building</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT THE DEARING BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the dearing building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT THE DEARING BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the dearing building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT THE DEARING BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the dearing building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT THE DJANOGLY RESOURCE CENTRE</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("djanoglyLearningResource",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT THE DJANOGLY RESOURCE CENTRE</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the djanogly resource centre</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN THE DJANOGLY RESOURCE CENTRE</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the djanogly resource centre</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT THE DJANOGLY RESOURCE CENTRE</pattern>
+        <template>
+            <srai>how many pcs are available at the djanogly resource centre</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT THE DJANOGLY RESOURCE CENTRE</pattern>
+        <template>
+            <srai>how many pcs are available at the djanogly resource centre</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT THE DJANOGLY RESOURCE CENTRE</pattern>
+        <template>
+            <srai>how many pcs are available at the djanogly resource centre</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT THE GREENFIELD MEDICAL LIBRARY</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("qmcGreenfieldMedicalLibary",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT THE GREENFIELD MEDICAL LIBRARY</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the greenfield medical library</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN THE GREENFIELD MEDICAL LIBRARY</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the greenfield medical library</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT THE GREENFIELD MEDICAL LIBRARY</pattern>
+        <template>
+            <srai>how many pcs are available at the greenfield medical library</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT THE GREENFIELD MEDICAL LIBRARY</pattern>
+        <template>
+            <srai>how many pcs are available at the greenfield medical library</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT THE GREENFIELD MEDICAL LIBRARY</pattern>
+        <template>
+            <srai>how many pcs are available at the greenfield medical library</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT THE QMC MEDICAL SCHOOL</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("qmcMedicalSchool",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT THE QMC MEDICAL SCHOOL</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the qmc medical school</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN THE QMC MEDICAL SCHOOL</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the qmc medical school</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT THE QMC MEDICAL SCHOOL</pattern>
+        <template>
+            <srai>how many pcs are available at the qmc medical school</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT THE QMC MEDICAL SCHOOL</pattern>
+        <template>
+            <srai>how many pcs are available at the qmc medical school</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT THE QMC MEDICAL SCHOOL</pattern>
+        <template>
+            <srai>how many pcs are available at the qmc medical school</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT THE SUTTON BONINGTON GATEWAY BUILDING</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("sbGatewayBuilding",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT THE SUTTON BONINGTON GATEWAY BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the sutton bonington gateway building</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN THE SUTTON BONINGTON GATEWAY BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the sutton bonington gateway building</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT THE SUTTON BONINGTON GATEWAY BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the sutton bonington gateway building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT THE SUTTON BONINGTON GATEWAY BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the sutton bonington gateway building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT THE SUTTON BONINGTON GATEWAY BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the sutton bonington gateway building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE AVAILABLE AT THE SUTTON BONINGTON MAIN BUILDING</pattern>
+        <template>
+            SCRIPT:PCAvailability.getAvailablePCs("sbMainBuilding",response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE AT THE SUTTON BONINGTON MAIN BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the sutton bonington main building</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE AVAILABLE IN THE SUTTON BONINGTON MAIN BUILDING</pattern>
+        <template>
+            <template>
+                <srai>how many pcs are available at the sutton bonington main building</srai>
+            </template>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY COMPUTERS ARE FREE AT THE SUTTON BONINGTON MAIN BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the sutton bonington main building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>HOW MANY PCS ARE FREE AT THE SUTTON BONINGTON MAIN BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the sutton bonington main building</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>ARE THERE FREE COMPUTERS AT THE SUTTON BONINGTON MAIN BUILDING</pattern>
+        <template>
+            <srai>how many pcs are available at the sutton bonington main building</srai>
+        </template>
+    </category>
+
+    <!-- finding nearest available PC to the user -->
+    <category>
+        <pattern>GET NEAREST PC</pattern>
+        <template>
+            SCRIPT:PCAvailability.confirmLocationRequest(request, response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS THE NEAREST PC TO ME</pattern>
+        <template>
+            <srai>get nearest pc</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS THE NEAREST FREE PC TO ME</pattern>
+        <template>
+            <srai>get nearest pc</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS THE NEAREST AVAILABLE PC TO ME</pattern>
+        <template>
+            <srai>get nearest pc</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS THE NEAREST COMPUTER TO ME</pattern>
+        <template>
+            <srai>get nearest pc</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS THE NEAREST AVAILABLE COMPUTER TO ME</pattern>
+        <template>
+            <srai>get nearest pc</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHERE IS THE NEAREST FREE COMPUTER TO ME</pattern>
+        <template>
+            <srai>get nearest pc</srai>
+        </template>
+    </category>
+
+    <category>
+        <pattern>SEARCH *</pattern>
+        <template>
+            SCRIPT:SearchEngine.doSearch(wildCardArray[0]);
+        </template>
+    </category>
+</aiml>

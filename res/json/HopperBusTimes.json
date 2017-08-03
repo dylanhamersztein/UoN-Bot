@@ -1,0 +1,312 @@
+{
+  "901": {
+  },
+  "902": {
+    "weekday": {
+      "EAST DRIVE": {
+        "start_time": 745,
+        "end_time": 1815,
+        "minutes_past": [
+          15,
+          45
+        ]
+      },
+      "ARTS CENTRE": {
+        "start_time": 746,
+        "end_time": 1816,
+        "minutes_past": [
+          16,
+          46
+        ]
+      },
+      "KING'S MEADOW": {
+        "start_time": 755,
+        "end_time": 1825,
+        "minutes_past": [
+          25,
+          55
+        ]
+      },
+      "EAST ENTRANCE": {
+        "start_time": 800,
+        "end_time": 1830,
+        "minutes_past": [
+          0,
+          30
+        ]
+      },
+      "GATEHOUSE LODGE": {
+        "start_time": 802,
+        "end_time": 1602,
+        "minutes_past": [
+          2,
+          32
+        ]
+      },
+      "TRIUMPH ROAD": {
+        "start_time": 803,
+        "end_time": 1603,
+        "minutes_past": [
+          3,
+          33
+        ]
+      },
+      "NEWARK HALL": {
+        "start_time": 804,
+        "end_time": 1604,
+        "minutes_past": [
+          4,
+          34
+        ]
+      },
+      "THE EXCHANGE": {
+        "start_time": 805,
+        "end_time": 1605,
+        "minutes_past": [
+          5,
+          35
+        ]
+      },
+      "GEORGE GREEN": {
+        "start_time": 810,
+        "end_time": 1840,
+        "minutes_past": [
+          10,
+          40
+        ]
+      }
+    }
+  },
+  "903": {
+    "weekday": {
+      "THE EXCHANGE": {
+        "start_hour": 805,
+        "end_time": 1800,
+        "minutes_past": [
+          0,
+          15,
+          30,
+          45
+        ]
+      },
+      "GEORGE GREEN": {
+        "start_hour": 810,
+        "end_time": 1805,
+        "minutes_past": [
+          5,
+          20,
+          35,
+          50
+        ]
+      },
+      "LIBRARY ROAD": {
+        "start_hour": 812,
+        "end_time": 1807,
+        "minutes_past": [
+          7,
+          22,
+          37,
+          52
+        ]
+      },
+      "HISTORY": {
+        "start_hour": 816,
+        "end_time": 1811,
+        "minutes_past": [
+          11,
+          26,
+          41,
+          56
+        ]
+      },
+      "RUTLAD HALL": {
+        "start_hour": 817,
+        "end_time": 1812,
+        "minutes_past": [
+          12,
+          27,
+          42,
+          57
+        ]
+      },
+      "DERBY HALL": {
+        "start_hour": 818,
+        "end_time": 1813,
+        "minutes_past": [
+          13,
+          28,
+          43,
+          58
+        ]
+      },
+      "LENTON HALL": {
+        "start_hour": 819,
+        "end_time": 1814,
+        "minutes_past": [
+          14,
+          29,
+          44,
+          59
+        ]
+      },
+      "GEORGE GREEN2": {
+        "start_hour": 820,
+        "end_time": 1815,
+        "minutes_past": [
+          0,
+          15,
+          30,
+          45
+        ]
+      },
+      "PORTLAND HILL": {
+        "start_hour": 821,
+        "end_time": 1816,
+        "minutes_past": [
+          1,
+          16,
+          31,
+          46
+        ]
+      },
+      "EAST DRIVE": {
+        "start_hour": 826,
+        "end_time": 1826,
+        "minutes_past": [
+          11,
+          26,
+          41,
+          56
+        ]
+      },
+      "ARTS CENTRE": {
+        "start_hour": 827,
+        "end_time": 1827,
+        "minutes_past": [
+          12,
+          27,
+          42,
+          57
+        ]
+      },
+      "GATEHOUSE LODGE": {
+        "start_hour": 933,
+        "end_time": 1903,
+        "minutes_past": [
+          3,
+          33
+        ]
+      },
+      "TRIUMPH ROAD": {
+        "start_hour": 832,
+        "end_time": 1832,
+        "minutes_past": [
+          2,
+          17,
+          32,
+          47
+        ]
+      },
+      "NEWARK HALL": {
+        "start_hour": 834,
+        "end_time": 1834,
+        "minutes_past": [
+          6,
+          21,
+          36,
+          51
+        ]
+      }
+    },
+    "saturday": {
+      "THE EXCHANGE": {
+        "start_hour": 915,
+        "end_time": 1845,
+        "minutes_past": [
+          15,
+          45
+        ]
+      },
+      "GEORGE GREEN": {
+        "start_hour": 920,
+        "end_time": 1850,
+        "minutes_past": [
+          20,
+          50
+        ]
+      },
+      "PORTLAND HILL": {
+        "start_hour": 921,
+        "end_time": 1851,
+        "minutes_past": [
+          21,
+          51
+        ]
+      },
+      "LIBRARY ROAD": {
+        "start_hour": 922,
+        "end_time": 1852,
+        "minutes_past": [
+          22,
+          52
+        ]
+      },
+      "HISTORY": {
+        "start_hour": 926,
+        "end_time": 1856,
+        "minutes_past": [
+          26,
+          56
+        ]
+      },
+      "RUTLAD HALL": {
+        "start_hour": 927,
+        "end_time": 1857,
+        "minutes_past": [
+          27,
+          57
+        ]
+      },
+      "DERBY HALL": {
+        "start_hour": 928,
+        "end_time": 1858,
+        "minutes_past": [
+          28,
+          58
+        ]
+      },
+      "LENTON HALL": {
+        "start_hour": 929,
+        "end_time": 1859,
+        "minutes_past": [
+          29,
+          59
+        ]
+      },
+      "GATEHOUSE LODGE": {
+        "start_hour": 933,
+        "end_time": 1903,
+        "minutes_past": [
+          3,
+          33
+        ]
+      },
+      "TRIUMPH ROAD": {
+        "start_hour": 934,
+        "end_time": 1904,
+        "minutes_past": [
+          4,
+          34
+        ]
+      },
+      "NEWARK HALL": {
+        "start_hour": 936,
+        "end_time": 1906,
+        "minutes_past": [
+          6,
+          36
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "q1": {
+    "number": 1,
+    "question": "Please be aware that this serves undergraduate progression rules only.\nDo I have pass marks in all modules this academic year? [Y/N]",
+    "Y": "progress",
+    "N": "q2"
+  },
+  "q2": {
+    "number": 2,
+    "question": "Do I have a weighted average of at least 50% for this year? [Y/N]",
+    "Y": "q5",
+    "N": "q3"
+  },
+  "q3": {
+    "number": 3,
+    "question": "Do I have a weighted stage average of at least 45%? [Y/N]",
+    "Y": "q6",
+    "N": "q4"
+  },
+  "q4": {
+    "number": 4,
+    "question": "Do I have a weighted stage average of at least 40%? [Y/N]",
+    "Y": "q7",
+    "N": "q11"
+  },
+  "q5": {
+    "number": 5,
+    "question": "Do I have at least 100 credits of pass? [Y/N]",
+    "Y": "q10",
+    "N": "q6"
+  },
+  "q6": {
+    "number": 6,
+    "question": "Do I have at least 90 credits of pass? [Y/N]",
+    "Y": "q8",
+    "N": "q7"
+  },
+  "q7": {
+    "number": 7,
+    "question": "Do I have at least 80 credits of pass? [Y/N]",
+    "Y": "q9",
+    "N": "q11"
+  },
+  "q8": {
+    "number": 8,
+    "question": "Do I have at least 110 credits at 30% or above? [Y/N]",
+    "Y": "q10",
+    "N": "q9"
+  },
+  "q9": {
+    "number": 9,
+    "question": "Do I have all marks at 30% or above? [Y/N]",
+    "Y": "q10",
+    "N": "q11"
+  },
+  "q10": {
+    "number": 10,
+    "question": "[Supplementary regulations for 1st year students only.]\nHave I passed G51PGA? [Y/N]\n(If this question does not apply to you, enter 'Y').",
+    "Y": "progress",
+    "N": "terminate"
+  },
+  "q11": {
+    "number": 11,
+    "question": "You will have an opportunity to re-take exams for all failed modules.\nIf you have your re-sit results, did you satisfy any of the previous conditions? [Y/N]",
+    "Y": "progress",
+    "N": "q12"
+  },
+  "q12": {
+    "number": 12,
+    "question": "Do you have at least 80 credits of pass and a stage average of at least 40%?\nYou will have a second opportunity to re0take exams for all failed modules.\nIf you have your 2nd re-sit results, did you satisfy any of the previous conditions? [Y/N]",
+    "Y": "progress",
+    "N": "terminate"
+  },
+  "progress": {
+    "question": "Congratulations! You progress to the next stage of your degree.",
+    "Y": false,
+    "N": false
+  },
+  "terminate": {
+    "question": "Unfortunately your results indicate that you cannot continue in your degree.",
+    "Y": false,
+    "N": false
+  }
+}
