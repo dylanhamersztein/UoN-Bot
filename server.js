@@ -85,12 +85,10 @@ const server = (request, response) => {
 		} // end switch
 	} else if (request.method === "POST") {
 		// defining error behaviour for request
-		request.on('error', (err) => {
-			console.log("Error: " + err);
-		});
+		request.on('error', err => console.log("Error: " + err));
 
 		// defining data received behaviour for request
-		request.on('data', (data) => {
+		request.on('data', data => {
 			queryData += data;
 
 			// checking if there is too much post data
@@ -130,7 +128,7 @@ const server = (request, response) => {
 				// clarifying which member of staff the user meant
 				StaffSearch.handleMultipleResults(queryData, request, response);
 			} else if (cookies.get("findNearestPC") !== undefined) {
-				// finding nearest PC
+				// finding nearest PC to user
 				PCAvailability.getNearestPC(queryData, request, response);
 			} else {
 				// finding response for user's input from AIML file

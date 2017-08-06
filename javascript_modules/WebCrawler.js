@@ -1,22 +1,17 @@
 const fs = require("fs");
 const Crawler = require("simplecrawler");
 const cheerio = require("cheerio");
+const htmlToText = require("html-to-text");
 
-let crawler, stopWords;
+let crawler, fileNamesToLinks = {};
 
 const WebCrawler = {
 	initialiseWebCrawler: (url) => {
-		// loading stop words into the crawler
-		fs.readFile('./res/json/WebCrawlerStopWords.json', (err, data) => {
-			if (err) throw err;
-			stopWords = JSON.parse(data);
-		});
-
 		// defining the url the crawler should start on
 		crawler = new Crawler(url);
 
 		// setting up behaviour of crawler
-		crawler.on("fetchcomplete", (queueItem, responseBuffer, response) => {
+		crawler.on("fetchcomplete", (queueItem, responseBuffer) => {
 			// console.log("Fetched resource at " + queueItem.url);
 
 			// loading web-page into cheerio/jquery object
@@ -28,25 +23,33 @@ const WebCrawler = {
 			// formatting the title to an appropriate file name
 			title = title.replace(/[^A-Za-z]/g, "");
 
-			// extracting all the text found on the page
-			let bodyText = $("body").text().toUpperCase();
-
-			// removing all unwanted text
-			let splitText = bodyText.split("\n").filter(entry => {
-				return entry.trim() !== "" && !entry.includes("<P>");
+			// formatting the web-page so that it's readable and searcah
+			let text = htmlToText.fromString(responseBuffer.toString(), {
+				wordwrap: false,
+				ignoreImage: true,
+				singleNewLineParagraphs: true,
+				linkHrefBaseUrl: "https://www.nottingham.ac.uk"
 			});
 
-			// converting page's text into one line per block of text
-			let finalString = splitText.join(" ").replace(/\s\s+/g, ' ').replace(/\. /g, ".\n");
+			// removing unwanted text from formatted html
+			text = text.replace(/(browser does not support script.)/gi, "").trim();
+
+			// adding the link at which this page was found to the collection
+			fileNamesToLinks[title + ".txt"] = queueItem.url;
 
 			// writing this text to a local file for searching
-			fs.writeFile("./res/compsciwebsite/" + title + ".txt", finalString, (err) => {
+			fs.writeFile("./res/compsciwebsite/" + title + ".txt", text, err => {
 				if (err) throw err
 			});
 		});
 
 		// defining behaviour for when the crawling finishes
-		crawler.on("complete", () => console.log("Finished web crawl."));
+		crawler.on("complete", () => {
+			fs.writeFile("./res/json/FileNamesToLinks.json", JSON.stringify(fileNamesToLinks), err => {
+				if (err) throw err;
+			});
+			console.log("Finished web crawl.");
+		});
 
 		// setting crawler properties
 		crawler.interval = 200;
@@ -54,7 +57,7 @@ const WebCrawler = {
 		crawler.maxDepth = 2;
 
 		// ensures only <a> tags are returned for crawling
-		crawler.discoverResources = (buffer) => {
+		crawler.discoverResources = buffer => {
 			let $ = cheerio.load(buffer.toString("utf8"));
 			return $("a[href]").map(function () {
 				return $(this).attr("href");
