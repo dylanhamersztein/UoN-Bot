@@ -10,7 +10,7 @@ const WebCrawler = {
 		// defining the url the crawler should start on
 		crawler = new Crawler(url);
 
-		// setting up behaviour of crawler
+		// defining how the crawler indexes the web-pages
 		crawler.on("fetchcomplete", (queueItem, responseBuffer) => {
 			// console.log("Fetched resource at " + queueItem.url);
 
@@ -18,13 +18,13 @@ const WebCrawler = {
 			const $ = cheerio.load(responseBuffer.toString());
 
 			// extracting the page's title for file-naming purposes
-			let title = $("title").text();
+			let fileName = $("title").text();
 
 			// formatting the title to an appropriate file name
-			title = title.replace(/[^A-Za-z]/g, "");
+			fileName = fileName.replace(/[^A-Za-z]/g, "").trim() + ".txt";
 
-			// formatting the web-page so that it's readable and searcah
-			let text = htmlToText.fromString(responseBuffer.toString(), {
+			// formatting the web-page so that it's readable and searchable
+			let fileContents = htmlToText.fromString(responseBuffer.toString(), {
 				wordwrap: false,
 				ignoreImage: true,
 				singleNewLineParagraphs: true,
@@ -32,13 +32,13 @@ const WebCrawler = {
 			});
 
 			// removing unwanted text from formatted html
-			text = text.replace(/(browser does not support script.)/gi, "").trim();
+			fileContents = fileContents.replace(/(browser does not support script.)/gi, "").trim();
 
 			// adding the link at which this page was found to the collection
-			fileNamesToLinks[title + ".txt"] = queueItem.url;
+			fileNamesToLinks[fileName + ".txt"] = queueItem.url;
 
 			// writing this text to a local file for searching
-			fs.writeFile("./res/compsciwebsite/" + title + ".txt", text, err => {
+			fs.writeFile("./res/compsciwebsite/" + fileName, fileContents, err => {
 				if (err) throw err
 			});
 		});
@@ -47,8 +47,8 @@ const WebCrawler = {
 		crawler.on("complete", () => {
 			fs.writeFile("./res/json/FileNamesToLinks.json", JSON.stringify(fileNamesToLinks), err => {
 				if (err) throw err;
+				console.log("Finished web crawl.");
 			});
-			console.log("Finished web crawl.");
 		});
 
 		// setting crawler properties
@@ -66,6 +66,9 @@ const WebCrawler = {
 
 		// narrowing the search to only the computer science/research web-pages
 		crawler.addFetchCondition(queueItem => queueItem.url.match(/(ComputerScience)/i));
+
+		// telling the crawler not to index the 'people' page
+		crawler.addFetchCondition(queueItem => !queueItem.url.match(/(ComputerScience\/people)/i));
 
 		// excluding pdf files from search
 		crawler.addFetchCondition(queueItem => !queueItem.path.match(/\.pdf$/i));
