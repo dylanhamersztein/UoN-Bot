@@ -47,19 +47,19 @@ const ShopTimes = {
         if (shopOpeningTime !== undefined && shopClosingTime !== undefined) {
             // checking that the shop is open at the current time
             if (shopOpeningTime.isBefore(currentTime) && currentTime.isBefore(shopClosingTime)) {
-                return "Yes, the " + formatShopName(input) + " is currently open and will close at " + shopClosingTime.format("HH:mm") + ".";
+				return `Yes, the ${formatShopName(input)} is currently open and will close at ${shopClosingTime.format("HH:mm")}.`;
             } else {
-                return "The " + formatShopName(input) + " is currently closed. It will open again at " + shopOpeningTime.format("HH:mm") + " tomorrow."
+				return `The ${formatShopName(input)} is currently closed. It will open again at ${shopOpeningTime.format("HH:mm")} tomorrow.`
             } // end if/else
         } else {
-            return "The " + formatShopName(input) + " is not open today.";
+			return `The ${formatShopName(input)} is not open today.`;
         } //end if/else
     },
 	getOpeningTime: input => {
-        return "The " + formatShopName(input) + " opens at " + moment(ShopTimesObject[input.split(" ")[1]][input.split(" ")[0]]["opening_time"], "hmm").format("HH:mm") + ".";
+		return `The ${formatShopName(input)} opens at ${moment(ShopTimesObject[input.split(" ")[1]][input.split(" ")[0]]["opening_time"], "hmm").format("HH:mm")}.`;
     },
 	getClosingTime: input => {
-        return "The " + formatShopName(input) + " closes at " + moment(ShopTimesObject[input.split(" ")[1]][input.split(" ")[0]]["closing_time"], "hmm").format("HH:mm") + ".";
+		return `The ${formatShopName(input)} closes at ${moment(ShopTimesObject[input.split(" ")[1]][input.split(" ")[0]]["closing_time"], "hmm").format("HH:mm")}.`;
     }
 };
 

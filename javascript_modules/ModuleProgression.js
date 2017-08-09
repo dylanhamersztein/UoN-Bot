@@ -64,7 +64,7 @@ const ModuleProgression = {
 			} // end for
 
 			// showing user's current progress in module by default
-			let responseString = "Your current progress for this module is " + currentProgress + "%.";
+			let responseString = `Your current progress for this module is ${currentProgress}%.`;
 
 			// calculating required grade on final assessment if the information to do so exists
 			if (toCalcName !== "" && toCalcWeight > 0 && desiredModuleGrade > 0) {
@@ -72,11 +72,9 @@ const ModuleProgression = {
 				toCalcGrade = (desiredModuleGrade - currentProgress) / (toCalcWeight / 100);
 
 				toCalcGrade <= 100 ?
-					responseString += " In order to achieve " + desiredModuleGrade +
-						"% overall, you must get " + toCalcGrade + "% in " + toCalcName + "."
+					responseString += ` In order to achieve ${desiredModuleGrade}% overall, you must get ${toCalcGrade}% in ${toCalcName}.`
 					:
-					responseString += " Unfortunately it is not possible for you to reach your desired grade of " + desiredModuleGrade
-						+ "% with the remaining assessment, as you would need to achieve " + toCalcGrade + "% in " + toCalcName + ".";
+					responseString += ` Unfortunately it is not possible for you to reach your desired grade of ${desiredModuleGrade}% with the remaining assessment, as you would need to achieve ${toCalcGrade}% in ${toCalcName}.`;
 			} // end if
 
 			// deleting the relevant cookie

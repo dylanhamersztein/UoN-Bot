@@ -59,9 +59,9 @@ const StaffSearch = {
             if (resultObject.meta.noResults === 1) {
                 // checking whether the required information is listed for this staff member
                 resultObject.results[0][requiredInfo] !== '' ?
-                    responseString = staffName + "'s " + doFormat(requiredInfo) + " is " + resultObject.results[0][requiredInfo] + "."
+					responseString = `${staffName}'s ${doFormat(requiredInfo)} is ${resultObject.results[0][requiredInfo]}.`
                     :
-                    responseString = "Unfortunately " + doFormat(requiredInfo) + " is not listed for " + staffName + ".";
+					responseString = `Unfortunately ${doFormat(requiredInfo)} is not listed for ${staffName}.`;
             } else if (resultObject.meta.noResults === 0) {
                 responseString = "Unfortunately your search did not return any results. Please make sure your search term is spelled correctly."
             } else {
@@ -72,8 +72,7 @@ const StaffSearch = {
                 cookies.set(StaffSearch.reqInfoCookieName, requiredInfo);
 
                 // prompting user to select a single name
-                responseString = "Your search has returned multiple matches, which member of staff did you mean? Please enter their full name.\n" +
-                    listNames(resultObject)
+				responseString = `Your search has returned multiple matches, which member of staff did you mean? Please enter their full name.\n${listNames(resultObject)}`
             } // end if/else
 
             // sending response back to user
