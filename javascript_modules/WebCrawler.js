@@ -6,7 +6,7 @@ const htmlToText = require("html-to-text");
 let crawler, fileNamesToLinks = {};
 
 const WebCrawler = {
-	initialiseWebCrawler: url => {
+	startCrawlAt: url => {
 		// defining the url the crawler should start on
 		crawler = new Crawler(url);
 
@@ -28,17 +28,21 @@ const WebCrawler = {
 				wordwrap: false,
 				ignoreImage: true,
 				singleNewLineParagraphs: true,
-				linkHrefBaseUrl: "https://www.nottingham.ac.uk"
+				linkHrefBaseUrl: "https://www.nottingham.ac.uk",
+				hideLinkHrefIfSameAsText: true
 			});
 
+			// removing multiple newline characters from formatted html
+			fileContents = fileContents.replace(/\n{3,}/g, "\n");
+
 			// removing unwanted text from formatted html
-			fileContents = fileContents.replace(/(browser does not support script.)/gi, "").trim();
+			fileContents = fileContents.replace(/(browser does not support script.)/gi, "");
 
 			// adding the link at which this page was found to the collection
-			fileNamesToLinks[fileName + ".txt"] = queueItem.url;
+			fileNamesToLinks[fileName] = queueItem.url;
 
 			// writing this text to a local file for searching
-			fs.writeFile("./res/compsciwebsite/" + fileName, fileContents, err => {
+			fs.writeFile("./res/compsciwebsite/" + fileName, fileContents.trim(), err => {
 				if (err) throw err
 			});
 		});
@@ -53,8 +57,8 @@ const WebCrawler = {
 
 		// setting crawler properties
 		crawler.interval = 200;
-		crawler.maxConcurrency = 5;
-		crawler.maxDepth = 2;
+		crawler.maxConcurrency = 10;
+		crawler.maxDepth = 3;
 
 		// ensures only <a> tags are returned for crawling
 		crawler.discoverResources = buffer => {
@@ -67,7 +71,7 @@ const WebCrawler = {
 		// narrowing the search to only the computer science/research web-pages
 		crawler.addFetchCondition(queueItem => queueItem.url.match(/(ComputerScience)/i));
 
-		// telling the crawler not to index the 'people' page
+		// telling the crawler not to index the 'people' subdirectory
 		crawler.addFetchCondition(queueItem => !queueItem.url.match(/(ComputerScience\/people)/i));
 
 		// excluding pdf files from search

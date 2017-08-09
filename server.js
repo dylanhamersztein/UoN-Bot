@@ -31,11 +31,11 @@ const PCAvailability = require("./javascript_modules/PCAvailability");
 PCAvailability.initialise();
 
 // requiring and starting the web crawl
-// const WebCrawler = require("./javascript_modules/WebCrawler");
-// WebCrawler.initialiseWebCrawler("https://www.nottingham.ac.uk/ComputerScience/index.aspx");
+const WebCrawler = require("./javascript_modules/WebCrawler");
+// WebCrawler.startCrawlAt("https://www.nottingham.ac.uk/ComputerScience/index.aspx");
 
 // for searching through the computer science web-pages
-// const SearchEngine = require("./javascript_modules/SearchEngine");
+const SearchEngine = require("./javascript_modules/SearchEngine");
 
 // server listening port
 const port = 9000;
