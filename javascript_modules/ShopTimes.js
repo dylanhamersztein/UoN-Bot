@@ -19,7 +19,7 @@ const ShopTimes = {
             ShopTimesObject = JSON.parse(data);
         });
     },
-    isOpen: (input) => {
+	isOpen: input => {
         let shopLocation = input.split(" ")[0];
         let shopName = input.split(" ")[1];
         let shopOpeningTime, shopClosingTime;
@@ -55,10 +55,10 @@ const ShopTimes = {
             return "The " + formatShopName(input) + " is not open today.";
         } //end if/else
     },
-    getOpeningTime: (input) => {
+	getOpeningTime: input => {
         return "The " + formatShopName(input) + " opens at " + moment(ShopTimesObject[input.split(" ")[1]][input.split(" ")[0]]["opening_time"], "hmm").format("HH:mm") + ".";
     },
-    getClosingTime: (input) => {
+	getClosingTime: input => {
         return "The " + formatShopName(input) + " closes at " + moment(ShopTimesObject[input.split(" ")[1]][input.split(" ")[0]]["closing_time"], "hmm").format("HH:mm") + ".";
     }
 };

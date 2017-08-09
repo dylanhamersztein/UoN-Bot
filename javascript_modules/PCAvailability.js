@@ -75,9 +75,7 @@ const PCAvailability = {
                 let responseString = "";
 
                 // concatenating results of one web-page into a single response string
-                result.forEach((currentElement) => {
-                    responseString += currentElement[location]["location"] + " has " + currentElement[location]["free"] + " available PCs. ";
-                });
+				result.forEach(currentElement => responseString += currentElement[location]["location"] + " has " + currentElement[location]["free"] + " available PCs. ");
 
                 // adding the completed response string to an array which stores them all
                 asyncCallResultsArray.push(responseString.trim());

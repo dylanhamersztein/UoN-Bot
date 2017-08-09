@@ -31,11 +31,11 @@ const PCAvailability = require("./javascript_modules/PCAvailability");
 PCAvailability.initialise();
 
 // requiring and starting the web crawl
-const WebCrawler = require("./javascript_modules/WebCrawler");
-WebCrawler.initialiseWebCrawler("https://www.nottingham.ac.uk/ComputerScience/index.aspx");
+// const WebCrawler = require("./javascript_modules/WebCrawler");
+// WebCrawler.initialiseWebCrawler("https://www.nottingham.ac.uk/ComputerScience/index.aspx");
 
 // for searching through the computer science web-pages
-const SearchEngine = require("./javascript_modules/SearchEngine");
+// const SearchEngine = require("./javascript_modules/SearchEngine");
 
 // server listening port
 const port = 9000;
@@ -105,26 +105,18 @@ const server = (request, response) => {
 
 			// ROUTING LOGIC
 			if (queryData === ModuleProgression.userCommand && cookies.get(ModuleProgression.cookieName) === undefined) {
-				// setting a cookie for their next input
-				cookies.set(ModuleProgression.cookieName, true, {httpOnly: false});
-
-				// sending the module's instructional text to the user
-				response.writeHead(200, {'Content-Type': 'text/plain'});
-				response.end(ModuleProgression.instructionText);
+				// retrieving the instructional text
+				ModuleProgression.getInstructionText(request, response);
 			} else if (cookies.get(ModuleProgression.cookieName) !== undefined) {
-				// deleting the relevant cookie
-				cookies.set(ModuleProgression.cookieName, "", {"expires": new Date(0)});
-
-				// calculating and sending user's progression back to client
-				response.writeHead(200, {'Content-Type': 'text/plain'});
-				response.end(ModuleProgression.calculateProgression(queryData));
+				// calculating module progression
+				ModuleProgression.calculateProgression(queryData, request, response);
 			} else if (queryData === DegreeProgression.userCommand && cookies.get(DegreeProgression.cookieName) === undefined) {
 				// sending the first question to the user
 				DegreeProgression.getFirstQuestion(request, response);
 			} else if (cookies.get(DegreeProgression.cookieName) !== undefined) {
 				// getting the next question and returning it to the user
 				DegreeProgression.getNextQuestion(queryData, request, response);
-			} else if (cookies.get(StaffSearch.cookieName) === "multipleResults") {
+			} else if (cookies.get(StaffSearch.moduleCookieName) === "multipleResults") {
 				// clarifying which member of staff the user meant
 				StaffSearch.handleMultipleResults(queryData, request, response);
 			} else if (cookies.get("findNearestPC") !== undefined) {
@@ -138,7 +130,7 @@ const server = (request, response) => {
 
 					if (answer === undefined) {
 						response.writeHead(200, {'Content-Type': 'text/plain'});
-						response.end("I'm sorry, I didn't quite understand what you said. Please try again.");
+						response.end("Sorry, I didn't quite understand what you were saying there.");
 					} else if (answer.substring(0, 6) === "SCRIPT") {
 						// extracting and evaluating the code from its identifier in brain.aiml
 						let evalResult = eval(answer.split(":")[1]);

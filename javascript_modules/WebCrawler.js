@@ -6,7 +6,7 @@ const htmlToText = require("html-to-text");
 let crawler, fileNamesToLinks = {};
 
 const WebCrawler = {
-	initialiseWebCrawler: (url) => {
+	initialiseWebCrawler: url => {
 		// defining the url the crawler should start on
 		crawler = new Crawler(url);
 

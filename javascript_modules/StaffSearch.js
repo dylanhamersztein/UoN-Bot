@@ -8,9 +8,15 @@ const Cookies = require("cookies");
 const baseURL = "http://ws.nottingham.ac.uk/person-search/v1.0/staff/";
 
 // creates a string with every name returned by this query
-const listNames = (resultObject) => {
+const listNames = resultObject => {
     let toReturn = "";
     resultObject.results.forEach((currentValue, index) => {
+		// breaking up the list of names into more readable chunks
+		if (index % 10 === 0) {
+			toReturn += "\n";
+		} // end if
+
+		// determining whether or not to end the string
         index < resultObject.results.length - 1 ?
             toReturn += currentValue._givenName + " " + currentValue._surname + ", "
             :
@@ -20,7 +26,7 @@ const listNames = (resultObject) => {
 };
 
 // creates a readable string to denote what the user asked for
-const doFormat = (reqInfo) => {
+const doFormat = reqInfo => {
     switch (reqInfo) {
         case "_email":
             return "an email address";
@@ -32,7 +38,7 @@ const doFormat = (reqInfo) => {
 };
 
 const StaffSearch = {
-    cookieName: "StaffSearch",
+	moduleCookieName: "StaffSearch",
     reqInfoCookieName: "StaffSearchRequiredInfo",
 
     search: (staffName, requiredInfo, serverRequest, serverResponse) => {
@@ -62,7 +68,7 @@ const StaffSearch = {
                 let cookies = new Cookies(serverRequest, serverResponse);
 
                 // setting cookies so that the server knows what's happening
-                cookies.set(StaffSearch.cookieName, "multipleResults");
+				cookies.set(StaffSearch.moduleCookieName, "multipleResults");
                 cookies.set(StaffSearch.reqInfoCookieName, requiredInfo);
 
                 // prompting user to select a single name
@@ -82,7 +88,7 @@ const StaffSearch = {
         let requiredInfo = cookies.get(StaffSearch.reqInfoCookieName);
 
         // deleting the cookies
-        cookies.set(StaffSearch.cookieName, "", {"expires": new Date(0)});
+		cookies.set(StaffSearch.moduleCookieName, "", {"expires": new Date(0)});
         cookies.set(StaffSearch.reqInfoCookieName, "", {"expires": new Date(0)});
 
         // re-running the search with new name and same required info

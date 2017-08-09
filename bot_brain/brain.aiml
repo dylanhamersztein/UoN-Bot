@@ -641,6 +641,13 @@
     </category>
 
     <category>
+        <pattern>WHAT IS *'S EMAIL ADDRESS</pattern>
+        <template>
+            SCRIPT:StaffSearch.search(wildCardArray[0],"_email",request,response);
+        </template>
+    </category>
+
+    <category>
         <pattern>WHAT IS *'S PHONE NUMBER</pattern>
         <template>
             SCRIPT:StaffSearch.search(wildCardArray[0],"_externalPhone",request,response);
@@ -648,7 +655,21 @@
     </category>
 
     <category>
+            <pattern>WHAT IS *'S NUMBER</pattern>
+            <template>
+                SCRIPT:StaffSearch.search(wildCardArray[0],"_externalPhone",request,response);
+            </template>
+        </category>
+
+    <category>
         <pattern>WHAT DEPARTMENT IS * IN</pattern>
+        <template>
+            SCRIPT:StaffSearch.search(wildCardArray[0],"_department",request,response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS *'S DEPARTMENT</pattern>
         <template>
             SCRIPT:StaffSearch.search(wildCardArray[0],"_department",request,response);
         </template>
