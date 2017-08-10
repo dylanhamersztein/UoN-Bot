@@ -134,18 +134,20 @@ const PCAvailability = {
 
 				// making a request and checking how many pcs are available before deciding whether to return or recurse
 				await getAvailabilityInformation(sortedKeys[index], PCLocationObject[sortedKeys[index]]["links"][0], (results) => {
-					if (results[0][sortedKeys[index]]["free"] > 0) {
-						// deleting the cookie which indicates a required call to this method
-						let cookies = new Cookies(serverRequest, serverResponse);
-						cookies.set("findNearestPC", "", {expires: new Date(0)});
+					results.forEach(value => {
+						if (value[sortedKeys[index]]["free"] > 0) {
+							// deleting the cookie which indicates a required call to this method
+							let cookies = new Cookies(serverRequest, serverResponse);
+							cookies.set("findNearestPC", "", {expires: new Date(0)});
 
-						// sending the response back to the user
-						serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
-						serverResponse.end(`${PCLocationObject[sortedKeys[index]]["locationName"]} is your nearest location and has ${results[0][sortedKeys[index]]["free"]} available PCs in ${results[0][sortedKeys[index]]["location"]}.`);
-					} else {
-						// recursing to the next location
-						checkAvailabilityRecursively();
-					} // end if/else
+							// sending the response back to the user
+							serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
+							serverResponse.end(`${PCLocationObject[sortedKeys[index]]["locationName"]} is your nearest location and has ${results[0][sortedKeys[index]]["free"]} available PCs in ${results[0][sortedKeys[index]]["location"]}.`);
+						} else {
+							// recursing to the next location
+							checkAvailabilityRecursively();
+						} // end if/else
+					});
 				});
 			} else {
 				// deleting the cookie which indicates a required call to this method
