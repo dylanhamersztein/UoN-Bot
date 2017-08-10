@@ -53,6 +53,8 @@ const distanceBetween = (lat1, lon1, lat2, lon2) => {
 
 // module to export
 const PCAvailability = {
+	nearestPCCookieName: "findNearestPC",
+
 	initialise: () => {
 		fs.readFile('./res/json/PCAvailability.json', (err, data) => {
 			if (err) throw err;
@@ -114,16 +116,17 @@ const PCAvailability = {
 		let sortedKeys = Object.keys(PCLocationObject).sort((a, b) => {
 			if (PCLocationObject[a]["coordinates"] !== undefined && PCLocationObject[b]["coordinates"] !== undefined) {
 				return distanceBetween(userLatitude, userLongitude, PCLocationObject[a]["coordinates"][0], PCLocationObject[a]["coordinates"][1]) - distanceBetween(userLatitude, userLongitude, PCLocationObject[b]["coordinates"][0], PCLocationObject[b]["coordinates"][1])
-			}
+			} // end if
 		});
 
 		// removing entries which don't have coordinates
 		sortedKeys.forEach((location, index, array) => {
 			if (location === "hallwardL1" || location === "hallwardL2" || location === "hallwardL3" || location === "hallwardL4") {
 				array.splice(index, 1);
-			}
+			} // end if
 		});
 
+		// defining a method to make additional requests until it finds a location with >0 available PCs
 		const checkAvailabilityRecursively = async () => {
 			if (index < sortedKeys.length) {
 				// indicating the next location
@@ -152,10 +155,9 @@ const PCAvailability = {
 				// indicating to the user that the method has not found a location with >0 available PCs
 				serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
 				serverResponse.end("Unfortunately there are no available PCs on campus at this time. Please try again later.");
-			}// end if
+			}// end if/else
 		}; // end checkAvailabilityRecursively function
 
-		// calling the next method for the first time
 		checkAvailabilityRecursively();
 	}
 };

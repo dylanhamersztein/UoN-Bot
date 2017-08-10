@@ -119,7 +119,7 @@ const server = (request, response) => {
 			} else if (cookies.get(StaffSearch.moduleCookieName) === "multipleResults") {
 				// clarifying which member of staff the user meant
 				StaffSearch.handleMultipleResults(queryData, request, response);
-			} else if (cookies.get("findNearestPC") !== undefined) {
+			} else if (cookies.get(PCAvailability.nearestPCCookieName) !== undefined) {
 				// finding nearest PC to user
 				PCAvailability.getNearestPC(queryData, request, response);
 			} else {
