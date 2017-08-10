@@ -1855,7 +1855,7 @@
     <category>
         <pattern>SEARCH *</pattern>
         <template>
-            SCRIPT:SearchEngine.doSearch(wildCardArray[0],request,response);
+            SCRIPT:SearchEngine.doSearch(wildCardArray[0],request,response,0);
         </template>
     </category>
 </aiml>

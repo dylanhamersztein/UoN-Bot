@@ -32,7 +32,15 @@ PCAvailability.initialise();
 
 // requiring and starting the web crawl
 const WebCrawler = require("./javascript_modules/WebCrawler");
-WebCrawler.startCrawlAt("https://www.nottingham.ac.uk/ComputerScience/index.aspx");
+
+fs.readdir("./res/compsciwebsite", (err, files) => {
+	// only crawling if it hasn't happened yet
+	if (files.length < 1) {
+		WebCrawler.startCrawlAt("https://www.nottingham.ac.uk/ComputerScience/index.aspx");
+	} else {
+		console.log("Files already indexed. Ready to search.")
+	}// end if
+});
 
 // for searching through the computer science web-pages
 const SearchEngine = require("./javascript_modules/SearchEngine");
@@ -122,11 +130,14 @@ const server = (request, response) => {
 			} else if (cookies.get(PCAvailability.nearestPCCookieName) !== undefined) {
 				// finding nearest PC to user
 				PCAvailability.getNearestPC(queryData, request, response);
+			} else if (cookies.get(SearchEngine.moduleCookieName) !== undefined) {
+				// checking if the user wants to see the next page or not
+				SearchEngine.getNextPage(queryData, request, response);
 			} else {
 				// finding response for user's input from AIML file
 				aimlInterpreter.findAnswerInLoadedAIMLFiles(queryData, (answer, wildCardArray, input) => {
 					// logging by default to see what's being searched for
-					console.log(input + ' | ' + answer);
+					console.log(`${input} | ${answer}`);
 
 					if (answer === undefined) {
 						response.writeHead(200, {'Content-Type': 'text/plain'});

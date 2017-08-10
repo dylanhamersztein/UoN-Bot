@@ -1,6 +1,7 @@
 const fs = require("fs");
 const Crawler = require("simplecrawler");
 const htmlToText = require("html-to-text");
+const cheerio = require("cheerio");
 
 let crawler, fileNamesToLinks = {};
 
@@ -51,7 +52,7 @@ const WebCrawler = {
 		// setting crawler properties
 		crawler.interval = 200;
 		crawler.maxConcurrency = 20;
-		crawler.maxDepth = 4;
+		crawler.maxDepth = 3;
 
 		// ensures only <a> tags are returned for crawling
 		crawler.discoverResources = buffer => {
@@ -66,6 +67,9 @@ const WebCrawler = {
 
 		// telling the crawler not to index the 'people' subdirectory
 		crawler.addFetchCondition(queueItem => !queueItem.url.match(/(ComputerScience\/people)/i));
+
+		// telling the crawler not to index the 'people' subdirectory
+		crawler.addFetchCondition(queueItem => !queueItem.url.match(/(documents)/i));
 
 		// excluding pdf files from search
 		crawler.addFetchCondition(queueItem => !queueItem.path.match(/\.pdf$/i));
