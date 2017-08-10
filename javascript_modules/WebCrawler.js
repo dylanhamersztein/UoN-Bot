@@ -1,6 +1,5 @@
 const fs = require("fs");
 const Crawler = require("simplecrawler");
-const cheerio = require("cheerio");
 const htmlToText = require("html-to-text");
 
 let crawler, fileNamesToLinks = {};
@@ -12,16 +11,10 @@ const WebCrawler = {
 
 		// defining how the crawler indexes the web-pages
 		crawler.on("fetchcomplete", (queueItem, responseBuffer) => {
-			// console.log("Fetched resource at " + queueItem.url);
+			console.log("Fetched resource at " + queueItem.url);
 
-			// loading web-page into cheerio/jquery object
-			const $ = cheerio.load(responseBuffer.toString());
-
-			// extracting the page's title for file-naming purposes
-			let fileName = $("title").text();
-
-			// formatting the title to an appropriate file name
-			fileName = fileName.replace(/[^A-Za-z]/g, "").trim() + ".txt";
+			let splitURL = queueItem.url.split("/");
+			let fileName = `${splitURL[splitURL.length - 1].split(".")[0]}.txt`;
 
 			// formatting the web-page so that it's readable and searchable
 			let fileContents = htmlToText.fromString(responseBuffer.toString(), {
@@ -57,8 +50,8 @@ const WebCrawler = {
 
 		// setting crawler properties
 		crawler.interval = 200;
-		crawler.maxConcurrency = 10;
-		crawler.maxDepth = 3;
+		crawler.maxConcurrency = 20;
+		crawler.maxDepth = 4;
 
 		// ensures only <a> tags are returned for crawling
 		crawler.discoverResources = buffer => {

@@ -32,7 +32,7 @@ PCAvailability.initialise();
 
 // requiring and starting the web crawl
 const WebCrawler = require("./javascript_modules/WebCrawler");
-// WebCrawler.startCrawlAt("https://www.nottingham.ac.uk/ComputerScience/index.aspx");
+WebCrawler.startCrawlAt("https://www.nottingham.ac.uk/ComputerScience/index.aspx");
 
 // for searching through the computer science web-pages
 const SearchEngine = require("./javascript_modules/SearchEngine");
