@@ -311,9 +311,7 @@
     </category>
     <category>
         <pattern>GOODNIGHT</pattern>
-        <template>Goodnight
-            <get name="name"/>
-        </template>
+        <template>Goodnight</template>
     </category>
     <category>
         <pattern>GOODNITE *</pattern>
@@ -632,6 +630,27 @@
         </template>
     </category>
 
+    <category>
+        <pattern>GET ALL * STOPS</pattern>
+        <template>
+            SCRIPT:BusTimes.getAllBusStopsOnLine(wildCardArray[0]);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHERE DOES THE * STOP</pattern>
+        <template>
+            SCRIPT:BusTimes.getAllBusStopsOnLine(wildCardArray[0]);
+        </template>
+    </category>
+
+    <category>
+        <pattern>GET ALL STOPS ON THE *</pattern>
+        <template>
+            SCRIPT:BusTimes.getAllBusStopsOnLine(wildCardArray[0]);
+        </template>
+    </category>
+
     <!-- for enquiries about staff details -->
     <category>
         <pattern>WHAT IS *'S EMAIL</pattern>
@@ -655,11 +674,11 @@
     </category>
 
     <category>
-            <pattern>WHAT IS *'S NUMBER</pattern>
-            <template>
-                SCRIPT:StaffSearch.search(wildCardArray[0],"_externalPhone",request,response);
-            </template>
-        </category>
+        <pattern>WHAT IS *'S NUMBER</pattern>
+        <template>
+            SCRIPT:StaffSearch.search(wildCardArray[0],"_externalPhone",request,response);
+        </template>
+    </category>
 
     <category>
         <pattern>WHAT DEPARTMENT IS * IN</pattern>
@@ -1806,7 +1825,7 @@
     <category>
         <pattern>GET NEAREST PC</pattern>
         <template>
-            SCRIPT:PCAvailability.confirmLocationRequest(request, response);
+            SCRIPT:PCAvailability.confirmLocationRequest(request,response);
         </template>
     </category>
 

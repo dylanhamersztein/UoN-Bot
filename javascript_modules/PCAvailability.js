@@ -1,6 +1,13 @@
+// for reading in JSON file
 const fs = require("fs");
+
+// for making requests to the PCFinder website
 const request = require("request");
+
+// for extracting information from the returned web-page
 const cheerio = require("cheerio");
+
+// for manipulating cookies
 const Cookies = require("cookies");
 
 // global variable to hold the results of multiple asynchronous requests
@@ -56,11 +63,12 @@ const PCAvailability = {
 	nearestPCCookieName: "findNearestPC",
 
 	initialise: () => {
-		fs.readFile('./res/json/PCAvailability.json', (err, data) => {
+		fs.readFile("./res/json/PCAvailability.json", (err, data) => {
 			if (err) throw err;
 			PCLocationObject = JSON.parse(data);
 		});
-	},
+	}, // end initialise
+
 	getAvailablePCs: (location, serverResponse) => {
 		// extracting the right link from the PCLocationObject object
 		let input = PCLocationObject[location]["links"];
@@ -83,28 +91,30 @@ const PCAvailability = {
 					asyncCallResultsArray.unshift(`Information for ${PCLocationObject[location]["locationName"]}:`);
 
 					// turning the results into a single string to send back to the user
-					let response = asyncCallResultsArray.join('\n').trim();
+					let response = asyncCallResultsArray.join("\n").trim();
 
 					// clearing results for the array's next use
 					asyncCallResultsArray = [];
 
 					// sending the response back to the user
-					serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
+					serverResponse.writeHead(200, {"Content-Type": "text/plain"});
 					serverResponse.end(response);
 				} // end if
 			});
 		});
-	},
+	}, // end getAvailablePCs
+
 	confirmLocationRequest: (serverRequest, serverResponse) => {
 		// setting a cookie so the browser knows to ask for the location
 		let cookies = new Cookies(serverRequest, serverResponse);
 		cookies.set("requestLocation", true, {httpOnly: false});
 
 		// sending the module's instructional text to the user
-		serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
+		serverResponse.writeHead(200, {"Content-Type": "text/plain"});
 		serverResponse.end("Your GPS location is required in order to find the nearest available PC to you.\n" +
 			"Once you accept the location request, your nearest PC will be displayed after a few seconds.");
-	},
+	}, // end confirmLocationRequest
+
 	getNearestPC: (latLong, serverRequest, serverResponse) => {
 		let index = -1;
 
@@ -133,35 +143,34 @@ const PCAvailability = {
 				index++;
 
 				// making a request and checking how many pcs are available before deciding whether to return or recurse
-				await getAvailabilityInformation(sortedKeys[index], PCLocationObject[sortedKeys[index]]["links"][0], (results) => {
-					results.forEach(value => {
-						if (value[sortedKeys[index]]["free"] > 0) {
-							// deleting the cookie which indicates a required call to this method
-							let cookies = new Cookies(serverRequest, serverResponse);
-							cookies.set("findNearestPC", "", {expires: new Date(0)});
+				await getAvailabilityInformation(sortedKeys[index], PCLocationObject[sortedKeys[index]]["links"][0], results => results.forEach(value => {
+					if (value[sortedKeys[index]]["free"] > 0) {
+						// deleting the cookie which indicates a required call to this method
+						let cookies = new Cookies(serverRequest, serverResponse);
+						cookies.set("findNearestPC", "", {expires: new Date(0)});
 
-							// sending the response back to the user
-							serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
-							serverResponse.end(`${PCLocationObject[sortedKeys[index]]["locationName"]} is your nearest location and has ${results[0][sortedKeys[index]]["free"]} available PCs in ${results[0][sortedKeys[index]]["location"]}.`);
-						} else {
-							// recursing to the next location
-							checkAvailabilityRecursively();
-						} // end if/else
-					});
-				});
+						// sending the response back to the user
+						serverResponse.writeHead(200, {"Content-Type": "text/plain"});
+						serverResponse.end(`${PCLocationObject[sortedKeys[index]]["locationName"]} is your nearest location and has ${results[0][sortedKeys[index]]["free"]} available PCs in ${results[0][sortedKeys[index]]["location"]}.`);
+					} else {
+						// recursing to the next location
+						checkAvailabilityRecursively();
+					} // end if/else
+				}));
 			} else {
 				// deleting the cookie which indicates a required call to this method
 				let cookies = new Cookies(serverRequest, serverResponse);
 				cookies.set("findNearestPC", "", {expires: new Date(0)});
 
 				// indicating to the user that the method has not found a location with >0 available PCs
-				serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
+				serverResponse.writeHead(200, {"Content-Type": "text/plain"});
 				serverResponse.end("Unfortunately there are no available PCs on campus at this time. Please try again later.");
 			}// end if/else
 		}; // end checkAvailabilityRecursively function
 
+		// executing the method
 		checkAvailabilityRecursively();
-	}
+	} // end getNearestPC
 };
 
 // exporting the above object

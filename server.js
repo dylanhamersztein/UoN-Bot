@@ -1,10 +1,10 @@
 // for creating the server
 const http = require("http");
 
-// for dealing with cookies
+// for manipulating cookies
 const Cookies = require("cookies");
 
-// for reading in the web-page files
+// for reading the web-page files
 const fs = require("fs");
 
 // for interpreting user input
@@ -54,24 +54,24 @@ let queryData = "";
 // variables for web-page files
 let index, script, style;
 
-fs.readFile('./res/website/index.html', (err, data) => {
+fs.readFile("./res/website/index.html", (err, data) => {
 	if (err) throw err;
 	index = data;
 });
 
-fs.readFile('./res/website/style.css', (err, data) => {
+fs.readFile("./res/website/style.css", (err, data) => {
 	if (err) throw err;
 	style = data;
 });
 
-fs.readFile('./res/website/script.js', (err, data) => {
+fs.readFile("./res/website/script.js", (err, data) => {
 	if (err) throw err;
 	script = data;
 });
 
 // initialising the AIML intepreter and loading files into it
-let aimlInterpreter = new AIMLInterpreter({name: 'UoN-Bot', age: '100'});
-aimlInterpreter.loadAIMLFilesIntoArray(['./bot_brain/brain.aiml']);
+let aimlInterpreter = new AIMLInterpreter({name: "UoN-Bot", age: "100"});
+aimlInterpreter.loadAIMLFilesIntoArray(["./bot_brain/brain.aiml"]);
 
 // defining server behaviour
 const server = (request, response) => {
@@ -79,24 +79,24 @@ const server = (request, response) => {
 		// switching on subdirectory to determine which file to return
 		switch (request.url) {
 			case "/style.css":
-				response.writeHead(200, {'Content-Type': 'text/css'});
+				response.writeHead(200, {"Content-Type": "text/css"});
 				response.end(style);
 				break;
 			case "/script.js":
-				response.writeHead(200, {'Content-Type': 'application/javascript'});
+				response.writeHead(200, {"Content-Type": "application/javascript"});
 				response.end(script);
 				break;
 			default:
-				response.writeHead(200, {'Content-Type': 'text/html'});
+				response.writeHead(200, {"Content-Type": "text/html"});
 				response.end(index);
 				break;
 		} // end switch
 	} else if (request.method === "POST") {
 		// defining error behaviour for request
-		request.on('error', err => console.log("Error: " + err));
+		request.on("error", err => console.log("Error: " + err));
 
 		// defining data received behaviour for request
-		request.on('data', data => {
+		request.on("data", data => {
 			queryData += data;
 
 			// checking if there is too much post data
@@ -107,7 +107,7 @@ const server = (request, response) => {
 		});
 
 		// defining what do to when all data is received
-		request.on('end', () => {
+		request.on("end", () => {
 			// creating cookies instance
 			let cookies = new Cookies(request, response);
 
@@ -140,7 +140,7 @@ const server = (request, response) => {
 					console.log(`${input} | ${answer}`);
 
 					if (answer === undefined) {
-						response.writeHead(200, {'Content-Type': 'text/plain'});
+						response.writeHead(200, {"Content-Type": "text/plain"});
 						response.end("Sorry, I didn't quite understand what you were saying there.");
 					} else if (answer.substring(0, 6) === "SCRIPT") {
 						// extracting and evaluating the code from its identifier in brain.aiml
@@ -148,11 +148,11 @@ const server = (request, response) => {
 
 						// if evalResult is undefined then the server response was sent from inside an asynchronous method
 						if (evalResult !== undefined) {
-							response.writeHead(200, {'Content-Type': 'text/plain'});
+							response.writeHead(200, {"Content-Type": "text/plain"});
 							response.end(evalResult);
 						} // end if
 					} else {
-						response.writeHead(200, {'Content-Type': 'text/plain'});
+						response.writeHead(200, {"Content-Type": "text/plain"});
 						response.end(answer);
 					} // end if/else
 				});

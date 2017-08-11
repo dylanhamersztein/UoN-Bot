@@ -1,3 +1,4 @@
+// for manipulating cookies
 const Cookies = require("cookies");
 
 const ModuleProgression = {
@@ -25,9 +26,9 @@ const ModuleProgression = {
 		cookies.set(ModuleProgression.cookieName, true, {httpOnly: false});
 
 		// sending the module's instructional text to the user
-		serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
+		serverResponse.writeHead(200, {"Content-Type": "text/plain"});
 		serverResponse.end(ModuleProgression.instructionText);
-	},
+	}, // end getInstructionText
 
 	// function to fill the grades array
 	calculateProgression: (input, serverRequest, serverResponse) => {
@@ -45,13 +46,13 @@ const ModuleProgression = {
 			let desiredModuleGrade = 0;
 
 			// splitting the input into individual assessments
-			let assessments = input.split('\n');
+			let assessments = input.split("\n");
 
 			// splitting the grades from their values in the module
 			// and adding weighted result to cumulative total
 			for (let i in assessments) {
 				// splitting each line into its component numbers
-				let results = assessments[i].split(' ');
+				let results = assessments[i].split(" ");
 
 				// checking whether the current line starts with the name of an assessment or just a number
 				if (String(results[0].match(/^\d/)) > 0) {
@@ -81,14 +82,14 @@ const ModuleProgression = {
 			cookies.set(ModuleProgression.cookieName, "", {"expires": new Date(0)});
 
 			// calculating and sending user's progression back to client
-			serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
+			serverResponse.writeHead(200, {"Content-Type": "text/plain"});
 			serverResponse.end(responseString);
 		} else {
 			// deleting the relevant cookie
 			cookies.set(ModuleProgression.cookieName, "", {"expires": new Date(0)});
 
 			// calculating and sending user's progression back to client
-			serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
+			serverResponse.writeHead(200, {"Content-Type": "text/plain"});
 			serverResponse.end("Module progression exited. Is there anything else you want to ask me?");
 		} // end if/else
 	} // end calculateProgression

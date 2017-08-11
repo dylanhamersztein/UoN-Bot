@@ -1,19 +1,28 @@
+// for reading in JSON file
 const fs = require("fs");
-const Crawler = require("simplecrawler");
-const htmlToText = require("html-to-text");
-const cheerio = require("cheerio");
 
-let crawler, fileNamesToLinks = {};
+// for crawling the CS pages
+const Crawler = require("simplecrawler");
+
+// for extracting formatted text from web-pages
+const htmlToText = require("html-to-text");
+
+// for determining types of HTML tags in fetched pages
+const cheerio = require("cheerio");
 
 const WebCrawler = {
 	startCrawlAt: url => {
 		// defining the url the crawler should start on
-		crawler = new Crawler(url);
+		let crawler = new Crawler(url);
+
+		// maps file names to web-site URLs
+		let fileNamesToLinks = {};
+
+		// defining paths to directories/files
+		let webPageDirectoryPath = "./res/compsciwebsite/", fileNameToLinksPath = "./res/json/FileNamesToLinks.json";
 
 		// defining how the crawler indexes the web-pages
 		crawler.on("fetchcomplete", (queueItem, responseBuffer) => {
-			console.log("Fetched resource at " + queueItem.url);
-
 			let splitURL = queueItem.url.split("/");
 			let fileName = `${splitURL[splitURL.length - 1].split(".")[0]}.txt`;
 
@@ -36,14 +45,15 @@ const WebCrawler = {
 			fileNamesToLinks[fileName] = queueItem.url;
 
 			// writing this text to a local file for searching
-			fs.writeFile("./res/compsciwebsite/" + fileName, fileContents.trim(), err => {
-				if (err) throw err
+			fs.writeFile(webPageDirectoryPath + fileName, fileContents.trim(), err => {
+				if (err) throw err;
+				console.log("Fetched resource at " + queueItem.url);
 			});
 		});
 
 		// defining behaviour for when the crawling finishes
 		crawler.on("complete", () => {
-			fs.writeFile("./res/json/FileNamesToLinks.json", JSON.stringify(fileNamesToLinks), err => {
+			fs.writeFile(fileNameToLinksPath, JSON.stringify(fileNamesToLinks), err => {
 				if (err) throw err;
 				console.log("Finished web crawl.");
 			});
@@ -76,7 +86,7 @@ const WebCrawler = {
 
 		// starting the crawl
 		crawler.start();
-	}
+	} // end startCrawlAt
 };
 
 // exporting the module

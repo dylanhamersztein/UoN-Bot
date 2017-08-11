@@ -39,6 +39,7 @@ const doFormat = reqInfo => {
 
 const StaffSearch = {
 	moduleCookieName: "StaffSearch",
+
     reqInfoCookieName: "StaffSearchRequiredInfo",
 
     search: (staffName, requiredInfo, serverRequest, serverResponse) => {
@@ -53,7 +54,7 @@ const StaffSearch = {
             let resultObject = JSON.parse(body);
 
             // formatting staff name to title case for readability
-            staffName = staffName.split(' ').map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()).join(' ');
+			staffName = staffName.split(" ").map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()).join(" ");
 
             // checking if anything was returned and returning appropriate result
             if (resultObject.meta.noResults === 1) {
@@ -76,10 +77,11 @@ const StaffSearch = {
             } // end if/else
 
             // sending response back to user
-            serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
+			serverResponse.writeHead(200, {"Content-Type": "text/plain"});
             serverResponse.end(responseString);
         });
-    },
+	}, // end search
+
     handleMultipleResults: (staffName, serverRequest, serverResponse) => {
         let cookies = new Cookies(serverRequest, serverResponse);
 
@@ -92,7 +94,7 @@ const StaffSearch = {
 
         // re-running the search with new name and same required info
         StaffSearch.search(staffName, requiredInfo, serverRequest, serverResponse);
-    }
+	} // end handleMultipleResults
 };
 
 // exporting staff search as a module

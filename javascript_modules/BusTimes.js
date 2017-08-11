@@ -1,17 +1,40 @@
 // for reading in JSON files
-const fs = require('fs');
+const fs = require("fs");
 
 // JS library used to get locale-aware time
-const moment = require('moment-timezone');
+const moment = require("moment-timezone");
 
 // variable for bus object
 let HopperBusTimes;
+
+// convenience method to get the current weekday
+const getWeekDay = currentTime => {
+	let toReturn;
+
+	// deciding which object to access based on current day in week
+	switch (currentTime.weekday()) {
+		case 6:
+			toReturn = "saturday";
+			break;
+		case 7:
+			toReturn = "sunday";
+			break;
+		default:
+			toReturn = "weekday";
+			break;
+	} // end switch
+
+	return toReturn;
+};
+
+// convenience method to return a title-case bus stop name
+const toTitleCase = value => String(value).split(" ").map(word => word[0].toUpperCase() + word.substr(1).toLowerCase()).join(" ");
 
 const BusTimes = {
 	// function to load in bus JSON files
 	initialise: () => {
 		// reading JSON files into respective bus objects
-		fs.readFile('./res/json/HopperBusTimes.json', (err, data) => {
+		fs.readFile("./res/json/HopperBusTimes.json", (err, data) => {
 			if (err) throw err;
 			HopperBusTimes = JSON.parse(data);
 		});
@@ -20,26 +43,13 @@ const BusTimes = {
 	// function to request the next bus time from any route/stop that exists
 	getNextBusTime: (startEnd, busRouteName, busStopName) => {
 		// formatting and storing bus stop name as separate variable for user readability
-		let formattedBusStopName = busStopName.split(' ').map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()).join(' ');
-
-		// for accessing the right day's bus schedule
-		let dayOfWeek;
+		let formattedBusStopName = toTitleCase(busStopName);
 
 		// getting a locale aware time object
-		let currentTime = moment().tz('Europe/London');
+		let currentTime = moment().tz("Europe/London");
 
-		// deciding which object to access based on current day in week
-		switch (currentTime.weekday()) {
-			case 5:
-				dayOfWeek = "saturday";
-				break;
-			case 6:
-				dayOfWeek = "sunday";
-				break;
-			default:
-				dayOfWeek = "weekday";
-				break;
-		} // end switch
+		// for accessing the right day's bus schedule
+		let dayOfWeek = getWeekDay(currentTime);
 
 		// checking whether the bus runs on the current day
 		if (HopperBusTimes[busRouteName][dayOfWeek] !== undefined) {
@@ -72,21 +82,47 @@ const BusTimes = {
 								// determining which next time to return
 								for (let i = 0; i < minutesPastArray.length; i++) {
 									if (currentTime.minutes() < minutesPastArray[i]) {
-										return minutesPastArray[i] >= 10 ? responseString.concat(`${currentTime.hours()} : ${minutesPastArray[i]}.`) : responseString.concat(`${currentTime.hours()} :0 ${minutesPastArray[i]}.`);
+										return minutesPastArray[i] >= 10 ? responseString += `${currentTime.hours()}:${minutesPastArray[i]}.` : responseString += `${currentTime.hours()}:0${minutesPastArray[i]}.`;
 									} else if (i === minutesPastArray.length - 1) {
-										return minutesPastArray[0] >= 10 ? responseString.concat(`${currentTime.hours() + 1}:${minutesPastArray[0]}`) : responseString.concat(`${currentTime.hours() + 1}:0${minutesPastArray[0]}.`);
+										return minutesPastArray[0] >= 10 ? responseString += `${currentTime.hours() + 1}:${minutesPastArray[0]}` : responseString += `${currentTime.hours() + 1}:0${minutesPastArray[0]}.`;
 									} // end if/else
 								} // end for
 							}
 						} // end if/else
 				} // end switch
 			} else {
-				return `The ${busRouteName} does not stop at ${formattedBusStopName}.If you would like to see a list of all bus stops on a certain line...`;
+				return `The ${busRouteName} does not stop at ${formattedBusStopName}.\nIf you would like to see a list of all bus stops on a certain line type 'Get all [bus route] stops'.`;
 			} // end if/else
 		} else {
 			return `The ${busRouteName} does not run today.`;
 		}// end if/else
-	} // end get next bus time
+	}, // end get next bus time
+
+	getAllBusStopsOnLine: (busRouteName) => {
+		// getting a locale aware time object
+		let currentTime = moment().tz("Europe/London");
+
+		// for accessing the right day's bus schedule
+		let dayOfWeek = getWeekDay(currentTime);
+
+		let toReturn = `The ${busRouteName} stops at `;
+
+		// building a sentence to return to the user
+		let busStops = Object.keys(HopperBusTimes[busRouteName][dayOfWeek]).forEach((value, index, array) => {
+			// formatting the bus stop name
+			let formattedBusStopName = toTitleCase(value);
+
+			// adding it to the return sentence
+			index < array.length - 1 ? toReturn += `${formattedBusStopName}, ` : toReturn += `and ${formattedBusStopName} `;
+		});
+
+		// if it's saturday or sunday then the word should be capitalised
+		if (dayOfWeek !== "weekday") dayOfWeek = toTitleCase(dayOfWeek);
+
+		toReturn += `on ${dayOfWeek}s.`;
+
+		return toReturn;
+	} // end getAllBusStopsOnLine
 }; // end BusTimes
 
 // exporting BusTimes as module

@@ -1,10 +1,18 @@
+// for reading in files
 const fs = require("fs");
+
+// for searching the locally stored CS webpages
 const findInFiles = require("find-in-files");
+
+// for dealing with cookies
 const Cookies = require("cookies");
 
+// for returning URLs to user
 let fileNamesToLinks;
 
+// class variables for consistent cookie naming
 let searchTermCookieName = "searchTerm", currentPageCookieName = "currentPage";
+
 const SearchEngine = {
 	moduleCookieName: "SearchEngine",
 	doSearch: (searchTerm, serverRequest, serverResponse, pageIndex) => {
@@ -12,7 +20,7 @@ const SearchEngine = {
 		if (fileNamesToLinks === undefined) fileNamesToLinks = JSON.parse(fs.readFileSync("./res/json/FileNamesToLinks.json"));
 
 		// doing the search and formatting the results
-		findInFiles.find({"term": searchTerm, "flags": "ig"}, "./res/compsciwebsite", '.txt').then(results => {
+		findInFiles.find({"term": searchTerm, "flags": "ig"}, "./res/compsciwebsite", ".txt").then(results => {
 			let toReturn;
 			let cookies = new Cookies(serverRequest, serverResponse);
 
@@ -24,10 +32,8 @@ const SearchEngine = {
 				// number of documents in the entire corpus
 				let numDocs = Object.keys(fileNamesToLinks).length;
 
-				// calculating tf-idf for each result and storing it in the object
-				allMatchedFiles.forEach(fileName => {
-					results[fileName]["tf-idf"] = results[fileName].count * Math.log(numDocs / allMatchedFiles.length);
-				});
+				// calculating tf-idf for each result and storing it in the results object
+				allMatchedFiles.forEach(fileName => results[fileName]["tf-idf"] = results[fileName].count * Math.log(numDocs / allMatchedFiles.length));
 
 				// sorting the file name array by descending value of tf-idf
 				allMatchedFiles.sort((a, b) => {
@@ -38,7 +44,7 @@ const SearchEngine = {
 				toReturn = "Your search has returned the following results:\n";
 
 				// compiling all lines with the highest tf-idf score
-				results[allMatchedFiles[pageIndex]].line.forEach((foundLine, index, array) => {
+				results[allMatchedFiles[pageIndex]].line.forEach(foundLine => {
 					// filtering out unwanted things that the html-to-text library didn't
 					if (!/(\[javascript:|search this section|email this page|you are here:|main menu)/gi.test(foundLine) && foundLine !== foundLine.toUpperCase() && foundLine !== "") {
 						toReturn += `${foundLine.trim()}\n`;
@@ -64,7 +70,7 @@ const SearchEngine = {
 			} else toReturn = "Unfortunately your search did not return any results. Please revise your search term.";
 
 			// sending a response back to the user back to the user
-			serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
+			serverResponse.writeHead(200, {"Content-Type": "text/plain"});
 			serverResponse.end(toReturn.trim());
 		});
 	},
@@ -87,12 +93,12 @@ const SearchEngine = {
 				cookies.set(currentPageCookieName, "", {"expires": new Date(0)});
 
 				// confirming user's choice
-				serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
+				serverResponse.writeHead(200, {"Content-Type": "text/plain"});
 				serverResponse.end("Next page will not be retrieved. Is there anything else you want to ask me?");
 				break;
 			default:
 				// informing user of bad input
-				serverResponse.writeHead(200, {'Content-Type': 'text/plain'});
+				serverResponse.writeHead(200, {"Content-Type": "text/plain"});
 				serverResponse.end("Please only answer the question with 'Y' or 'N'.");
 		} // end switch
 	}
