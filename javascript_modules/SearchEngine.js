@@ -29,11 +29,8 @@ const SearchEngine = {
 
 			// checking if the search returned anything
 			if (allMatchedFiles.length > 0) {
-				// number of documents in the entire corpus
-				let numDocs = Object.keys(fileNamesToLinks).length;
-
 				// calculating tf-idf for each result and storing it in the results object
-				allMatchedFiles.forEach(fileName => results[fileName]["tf-idf"] = results[fileName].count * Math.log(numDocs / allMatchedFiles.length));
+				allMatchedFiles.forEach(fileName => results[fileName]["tf-idf"] = results[fileName].count * Math.log(Object.keys(fileNamesToLinks).length / allMatchedFiles.length));
 
 				// sorting the file name array by descending value of tf-idf
 				allMatchedFiles.sort((a, b) => {
@@ -52,7 +49,7 @@ const SearchEngine = {
 				});
 
 				// return a link to the page on which the match was found
-				toReturn += `These results were found at: ${fileNamesToLinks[allMatchedFiles[pageIndex].split("\\")[2]]}. This is page ${pageIndex + 1} of ${totalAppearances}.`;
+				toReturn += `These results were found at: ${fileNamesToLinks[allMatchedFiles[pageIndex].split("\\")[2]]}. This is page ${pageIndex + 1} of ${allMatchedFiles.length}.`;
 
 				// checking whether there is more than one matched page and informing the user
 				if (allMatchedFiles.length > 1 && pageIndex < allMatchedFiles.length - 1) {
