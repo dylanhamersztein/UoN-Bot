@@ -123,14 +123,14 @@ const PCAvailability = {
 		let userLongitude = latLong.split(",")[1];
 
 		// sorting pc locations in ascending distance order
-		let sortedKeys = Object.keys(PCLocationObject).sort((a, b) => {
+		let distanceSortedLocations = Object.keys(PCLocationObject).sort((a, b) => {
 			if (PCLocationObject[a]["coordinates"] !== undefined && PCLocationObject[b]["coordinates"] !== undefined) {
 				return distanceBetween(userLatitude, userLongitude, PCLocationObject[a]["coordinates"][0], PCLocationObject[a]["coordinates"][1]) - distanceBetween(userLatitude, userLongitude, PCLocationObject[b]["coordinates"][0], PCLocationObject[b]["coordinates"][1])
 			} // end if
 		});
 
 		// removing entries which don't have coordinates
-		sortedKeys.forEach((location, index, array) => {
+		distanceSortedLocations.forEach((location, index, array) => {
 			if (location === "hallwardL1" || location === "hallwardL2" || location === "hallwardL3" || location === "hallwardL4") {
 				array.splice(index, 1);
 			} // end if
@@ -138,20 +138,20 @@ const PCAvailability = {
 
 		// defining a method to make additional requests until it finds a location with >0 available PCs
 		const checkAvailabilityRecursively = async () => {
-			if (index < sortedKeys.length) {
+			if (index < distanceSortedLocations.length) {
 				// indicating the next location
 				index++;
 
 				// making a request and checking how many pcs are available before deciding whether to return or recurse
-				await getAvailabilityInformation(sortedKeys[index], PCLocationObject[sortedKeys[index]]["links"][0], results => results.forEach(value => {
-					if (value[sortedKeys[index]]["free"] > 0) {
+				await getAvailabilityInformation(distanceSortedLocations[index], PCLocationObject[distanceSortedLocations[index]]["links"][0], results => results.forEach(value => {
+					if (value[distanceSortedLocations[index]]["free"] > 0) {
 						// deleting the cookie which indicates a required call to this method
 						let cookies = new Cookies(serverRequest, serverResponse);
 						cookies.set("findNearestPC", "", {expires: new Date(0)});
 
 						// sending the response back to the user
 						serverResponse.writeHead(200, {"Content-Type": "text/plain"});
-						serverResponse.end(`${PCLocationObject[sortedKeys[index]]["locationName"]} is your nearest location and has ${results[0][sortedKeys[index]]["free"]} available PCs in ${results[0][sortedKeys[index]]["location"]}.`);
+						serverResponse.end(`${PCLocationObject[distanceSortedLocations[index]]["locationName"]} is your nearest location and has ${results[0][distanceSortedLocations[index]]["free"]} available PCs in ${results[0][distanceSortedLocations[index]]["location"]}.`);
 					} else {
 						// recursing to the next location
 						checkAvailabilityRecursively();
