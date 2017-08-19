@@ -17,7 +17,7 @@ const SearchEngine = {
 	moduleCookieName: "SearchEngine",
 	doSearch: (searchTerm, serverRequest, serverResponse, pageIndex) => {
 		// loading the object which maps file names to the URLs from which their contents originated
-		if (fileNamesToLinks === undefined) fileNamesToLinks = JSON.parse(fs.readFileSync("./res/json/FileNamesToLinks.json"));
+		if (fileNamesToLinks === undefined) fileNamesToLinks = JSON.parse(fs.readFileSync("./res/json/FileNamesToLinks.json").toString());
 
 		// doing the search and formatting the results
 		findInFiles.find({"term": searchTerm, "flags": "ig"}, "./res/compsciwebsite", ".txt").then(results => {
@@ -91,7 +91,7 @@ const SearchEngine = {
 
 				// confirming user's choice
 				serverResponse.writeHead(200, {"Content-Type": "text/plain"});
-				serverResponse.end("Next page will not be retrieved. Is there anything else you want to ask me?");
+				serverResponse.end("The next page will not be retrieved. Is there anything else you want to ask me?");
 				break;
 			default:
 				// informing user of bad input
