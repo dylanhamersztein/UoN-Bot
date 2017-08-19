@@ -2,8 +2,7 @@ let chatboxDiv, userInput;
 
 const USER_MESSAGE = "userMessage";
 const BOT_MESSAGE = "botMessage";
-const GEOLOCATION_DENIED_MESSAGE = "Please accept location access in order to use this feature. " +
-	"Try asking the same question again, but if this doesn't work you may have to reload the page.";
+const GEOLOCATION_DENIED_MESSAGE = "Please accept location access in order to use this feature. Try asking the same question again, but if this doesn't work you may have to reload the page.";
 
 function getUserInput() {
 	if (userInput.value !== "") {
@@ -14,7 +13,7 @@ function getUserInput() {
 		getBotReply(userInput.value, data => {
 			if (data !== undefined) {
 				// splitting response into separate messages
-				let responses = data.split('\n');
+				let responses = data.split("\n");
 
 				// adding all of them to the chat window
 				responses.forEach(message => addChat(message, BOT_MESSAGE));
@@ -27,19 +26,16 @@ function getUserInput() {
 					document.cookie = "requestLocation=true;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 
 					// // sending user coordinates to server
-					getBotReply(position.coords.latitude + ", " + position.coords.longitude, (data) => {
-						// splitting response into separate messages
-						let responses = data.split('\n');
-
-						// adding all of them to the chat window
-						responses.forEach((message) => {
-							addChat(message, BOT_MESSAGE);
-						});
+					getBotReply(`${position.coords.latitude}, ${position.coords.longitude}`, (data) => {
+						// splitting response into separate messages and adding all of them to the chat window
+						data.split('\n').forEach((message) => addChat(message, BOT_MESSAGE));
 					});
 				}, error => {
 					// deleting the old cookie
 					document.cookie = "requestLocation=true;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 					addChat(GEOLOCATION_DENIED_MESSAGE, BOT_MESSAGE);
+
+					console.log(error);
 				});
 			} else {
 				addChat("Sorry, I didn't quite understand what you were saying there.", BOT_MESSAGE);
