@@ -624,7 +624,19 @@
         </template>
     </category>
     <category>
+        <pattern>WHEN DOES THE FIRST * LEAVE *</pattern>
+        <template>
+            SCRIPT:BusTimes.getNextBusTime("start",wildCardArray[0],wildCardArray[1]);
+        </template>
+    </category>
+    <category>
         <pattern>WHEN DOES THE LAST * STOP AT *</pattern>
+        <template>
+            SCRIPT:BusTimes.getNextBusTime("end",wildCardArray[0],wildCardArray[1]);
+        </template>
+    </category>
+    <category>
+        <pattern>WHEN DOES THE LAST * LEAVE *</pattern>
         <template>
             SCRIPT:BusTimes.getNextBusTime("end",wildCardArray[0],wildCardArray[1]);
         </template>
