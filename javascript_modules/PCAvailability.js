@@ -79,13 +79,13 @@ const PCAvailability = {
 		pcFinderLinks.forEach((currentElement) => {
 			// making each request individually
 			getAvailabilityInformation(pcLocation, currentElement, result => {
+				// defing a string in which to store the response surrounded by HTML paragraph tags
 				let responseString = `<p>`;
-
-				// console.log(result);
 
 				// concatenating results of one web-page into a single response string
 				result.forEach(building => responseString += `${building[pcLocation]["location"]} has ${building[pcLocation]["free"]} available PCs.<br />`);
 
+				// closing the HTML paragraph tag
 				responseString += `</p>`;
 
 				// adding the completed response string to an array which stores them all
@@ -94,7 +94,7 @@ const PCAvailability = {
 				// checking whether all calls have returned (there will be as many responses as there were links passed into the method)
 				if (asyncCallResultsArray.length === pcFinderLinks.length) {
 					// adding more information the beginning of the array
-					asyncCallResultsArray.unshift(`<p>${identityString} Information for ${PCLocationObject[pcLocation]["locationName"]}:</p>`);
+					asyncCallResultsArray.unshift(`<p>${identityString} Information for <strong>${PCLocationObject[pcLocation]["locationName"]}:</strong></p>`);
 
 					// turning the results into a single string to send back to the user
 					let response = asyncCallResultsArray.join("\n").trim();
@@ -117,8 +117,8 @@ const PCAvailability = {
 
 		// sending the module's instructional text to the user
 		serverResponse.writeHead(200, {"Content-Type": "text/plain"});
-		serverResponse.end("Your GPS location is required in order to find the nearest available PC to you.\n" +
-			"Once you accept the location request, your nearest PC will be displayed after a few seconds.");
+		serverResponse.end("<p>Your GPS location is required in order to find the nearest available PC to you.</p>\n" +
+			"<p>Once you accept the location request, your nearest PC will be displayed after a few seconds.</p>");
 	}, // end confirmLocationRequest
 
 	getNearestPC: (latLong, serverRequest, serverResponse) => {
@@ -157,7 +157,7 @@ const PCAvailability = {
 
 						// sending the response back to the user
 						serverResponse.writeHead(200, {"Content-Type": "text/plain"});
-						serverResponse.end(`${PCLocationObject[distanceSortedLocations[index]]["locationName"]} is your nearest location and has ${results[0][distanceSortedLocations[index]]["free"]} available PCs in ${results[0][distanceSortedLocations[index]]["location"]}.`);
+						serverResponse.end(`<p><strong>${PCLocationObject[distanceSortedLocations[index]]["locationName"]}</strong> is your nearest location and has <strong>${results[0][distanceSortedLocations[index]]["free"]}</strong> available PCs in <strong>${results[0][distanceSortedLocations[index]]["location"]}</strong>.</p>`);
 					} else {
 						// recursing to the next location
 						checkAvailabilityRecursively();
@@ -170,7 +170,7 @@ const PCAvailability = {
 
 				// indicating to the user that the method has not found a location with >0 available PCs
 				serverResponse.writeHead(200, {"Content-Type": "text/plain"});
-				serverResponse.end("Unfortunately there are no available PCs on campus at this time. Please try again later.");
+				serverResponse.end(`<p>Unfortunately there are no available PCs on campus at this time. Please try again later.</p>`);
 			}// end if/else
 		}; // end checkAvailabilityRecursively function
 
