@@ -58,6 +58,8 @@ let queryData = "";
 // variables for web-page files
 let index, script, style;
 
+let identityString = "UoN-Bot:";
+
 fs.readFile("./res/website/index.html", (err, data) => {
 	if (err) throw err;
 	index = data;
@@ -153,7 +155,7 @@ const server = (request, response) => {
 						} // end if
 					} else {
 						response.writeHead(200, {"Content-Type": "text/plain"});
-						response.end(answer);
+						response.end(`<p>${identityString} ${answer}</p>`);
 					} // end if/else
 				});
 			} // end if block

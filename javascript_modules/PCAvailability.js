@@ -16,6 +16,8 @@ let asyncCallResultsArray = [];
 // holds arrays for each type of request the user can make
 let PCLocationObject;
 
+let identityString = "UoN-Bot:";
+
 const getAvailabilityInformation = async (building, url, callback) => {
 	request({url: url}, (error, response, body) => {
 		// error checking
@@ -69,26 +71,30 @@ const PCAvailability = {
 		});
 	}, // end initialise
 
-	getAvailablePCs: (location, serverResponse) => {
+	getAvailablePCs: (pcLocation, serverResponse) => {
 		// extracting the right link from the PCLocationObject object
-		let input = PCLocationObject[location]["links"];
+		let pcFinderLinks = PCLocationObject[pcLocation]["links"];
 
 		// looping over all the urls found in the object
-		input.forEach((currentElement) => {
+		pcFinderLinks.forEach((currentElement) => {
 			// making each request individually
-			getAvailabilityInformation(location, currentElement, (result) => {
-				let responseString = "";
+			getAvailabilityInformation(pcLocation, currentElement, result => {
+				let responseString = `<p>`;
+
+				// console.log(result);
 
 				// concatenating results of one web-page into a single response string
-				result.forEach(currentElement => responseString += `${currentElement[location]["location"]} has ${currentElement[location]["free"]} available PCs.`);
+				result.forEach(building => responseString += `${building[pcLocation]["location"]} has ${building[pcLocation]["free"]} available PCs.<br />`);
+
+				responseString += `</p>`;
 
 				// adding the completed response string to an array which stores them all
 				asyncCallResultsArray.push(responseString.trim());
 
 				// checking whether all calls have returned (there will be as many responses as there were links passed into the method)
-				if (asyncCallResultsArray.length === input.length) {
+				if (asyncCallResultsArray.length === pcFinderLinks.length) {
 					// adding more information the beginning of the array
-					asyncCallResultsArray.unshift(`Information for ${PCLocationObject[location]["locationName"]}:`);
+					asyncCallResultsArray.unshift(`<p>${identityString} Information for ${PCLocationObject[pcLocation]["locationName"]}:</p>`);
 
 					// turning the results into a single string to send back to the user
 					let response = asyncCallResultsArray.join("\n").trim();

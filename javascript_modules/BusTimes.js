@@ -7,6 +7,9 @@ const moment = require("moment-timezone");
 // variable for bus object
 let HopperBusTimes;
 
+// variable for the bot's identity string
+let identityString = "UoN-Bot:";
+
 // convenience method to get the current weekday
 const getWeekDay = currentTime => {
 	let toReturn;
@@ -58,9 +61,9 @@ const BusTimes = {
 				// switching on possible operations this method can perform
 				switch (startEnd) {
 					case "start":
-						return `The ${busRouteName} starts from ${formattedBusStopName} at ${moment(HopperBusTimes[busRouteName][dayOfWeek][busStopName]["start_time"], "hmm").format("HH:mm")}`;
+						return `<p>${identityString} The first <strong>${busRouteName}</strong> stops at <strong>${formattedBusStopName}</strong> at <strong>${moment(HopperBusTimes[busRouteName][dayOfWeek][busStopName]["start_time"], "hmm").format("HH:mm")}</strong></p>`;
 					case "end":
-						return `The last ${busRouteName} will stop at ${formattedBusStopName} at ${moment(HopperBusTimes[busRouteName][dayOfWeek][busStopName]["end_time"], "hmm").format("HH:mm")}`;
+						return `<p>${identityString} The last <strong>${busRouteName}</strong> will stop at <strong>${formattedBusStopName}</strong> at <strong>${moment(HopperBusTimes[busRouteName][dayOfWeek][busStopName]["end_time"], "hmm").format("HH:mm")}</strong></p>`;
 					case undefined:
 						let busStopStartTime = moment(HopperBusTimes[busRouteName][dayOfWeek][busStopName]["start_time"], "hmm");
 						let busStopEndTime = moment(HopperBusTimes[busRouteName][dayOfWeek][busStopName]["end_time"], "hmm");
@@ -68,13 +71,14 @@ const BusTimes = {
 						// checking whether the buses are running
 						// noinspection Annotator
 						if (currentTime.isBefore(busStopStartTime)) {
-							return `The ${busRouteName} is not running yet. The first bus departs from ${formattedBusStopName} at ${busStopStartTime.format("HH:mm") + "."}`;
+							return `<p>${identityString} The <strong>${busRouteName}</strong> is not running yet. The first bus departs from <strong>${formattedBusStopName}</strong> at <strong>${busStopStartTime.format("HH:mm") + "."}</strong></p>`;
 						} else {
 							if (currentTime.isAfter(busStopEndTime)) {
-								return `The final ${busRouteName} bus departed from ${formattedBusStopName} at ${busStopEndTime.format("HH:mm")}.\n` +
-									`The first bus from  ${formattedBusStopName} will depart at ${busStopStartTime.format("HH:mm")} tomorrow.`;
+								return `<p>${identityString} The final <strong>${busRouteName}</strong> bus departed from <strong>${formattedBusStopName}</strong> at <strong>${busStopEndTime.format("HH:mm")}.</strong></p\n>` +
+									`<p>${identityString} The first bus from  <strong>${formattedBusStopName}</strong> will depart at <strong>${busStopStartTime.format("HH:mm")}</strong> tomorrow.</p>`;
 							} else {
-								let responseString = `The next ${busRouteName} bus leaves ${formattedBusStopName} at `;
+								// </p> tag is added in the return statements below
+								let responseString = `<p>${identityString} The next <strong>${busRouteName}</strong> bus leaves <strong>${formattedBusStopName}</strong> at `;
 
 								// getting the minutes past each hour at which the bus stops at a particular bus stop
 								let minutesPastArray = HopperBusTimes[busRouteName][dayOfWeek][busStopName]["minutes_past"];
@@ -82,19 +86,19 @@ const BusTimes = {
 								// determining which next time to return
 								for (let i = 0; i < minutesPastArray.length; i++) {
 									if (currentTime.minutes() < minutesPastArray[i]) {
-										return minutesPastArray[i] >= 10 ? responseString += `${currentTime.hours()}:${minutesPastArray[i]}.` : responseString += `${currentTime.hours()}:0${minutesPastArray[i]}.`;
+										return minutesPastArray[i] >= 10 ? responseString += `<strong>${currentTime.hours()}:${minutesPastArray[i]}.</strong></p>` : responseString += `<strong>${currentTime.hours()}:0${minutesPastArray[i]}</strong>.</p>`;
 									} else if (i === minutesPastArray.length - 1) {
-										return minutesPastArray[0] >= 10 ? responseString += `${currentTime.hours() + 1}:${minutesPastArray[0]}` : responseString += `${currentTime.hours() + 1}:0${minutesPastArray[0]}.`;
+										return minutesPastArray[0] >= 10 ? responseString += `<strong>${currentTime.hours() + 1}:${minutesPastArray[0]}</strong></p>` : responseString += `<strong>${currentTime.hours() + 1}:0${minutesPastArray[0]}</strong>.</p>`;
 									} // end if/else
 								} // end for
 							}
 						} // end if/else
 				} // end switch
 			} else {
-				return `The ${busRouteName} does not stop at ${formattedBusStopName}.\nIf you would like to see a list of all bus stops on a certain line type 'Get all [bus route] stops'.`;
+				return `<p>${identityString} The <strong>${busRouteName}</strong> does not stop at <strong>${formattedBusStopName}</strong>.\nIf you would like to see a list of all bus stops on a certain line type 'Get all [bus route] stops'.</p>`;
 			} // end if/else
 		} else {
-			return `The ${busRouteName} does not run today.`;
+			return `<p>${identityString} The <strong>${busRouteName}</strong> does not run today.</p>`;
 		}// end if/else
 	}, // end get next bus time
 
@@ -105,7 +109,7 @@ const BusTimes = {
 		// for accessing the right day's bus schedule
 		let dayOfWeek = getWeekDay(currentTime);
 
-		let toReturn = `The ${busRouteName} stops at `;
+		let toReturn = `<p>The <strong>${busRouteName}</strong> stops at `;
 
 		// building a sentence to return to the user
 		let busStops = Object.keys(HopperBusTimes[busRouteName][dayOfWeek]).forEach((value, index, array) => {
@@ -119,7 +123,9 @@ const BusTimes = {
 		// if it's saturday or sunday then the word should be capitalised
 		if (dayOfWeek !== "weekday") dayOfWeek = toTitleCase(dayOfWeek);
 
-		toReturn += `on ${dayOfWeek}s.`;
+		toReturn += `on <strong>${dayOfWeek}s</strong>.</p>`;
+
+		// console.log(toReturn);
 
 		return toReturn;
 	} // end getAllBusStopsOnLine

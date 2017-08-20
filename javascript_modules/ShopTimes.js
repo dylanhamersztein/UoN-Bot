@@ -7,6 +7,8 @@ const moment = require("moment-timezone");
 // holds contents of JSON file
 let ShopTimesObject;
 
+let identityString = "UoN-Bot:";
+
 // convenience method for formatting the shop name to title case
 let formatShopName = (shopName) => {
 	return shopName.split(" ").map(w => w[0].toUpperCase() + w.substr(1).toLowerCase()).join(" ");
@@ -48,21 +50,21 @@ const ShopTimes = {
         if (shopOpeningTime !== undefined && shopClosingTime !== undefined) {
             // checking that the shop is open at the current time
             if (shopOpeningTime.isBefore(currentTime) && currentTime.isBefore(shopClosingTime)) {
-				return `Yes, the ${formatShopName(input)} is currently open and will close at ${shopClosingTime.format("HH:mm")}.`;
+				return `<p>${identityString} Yes, the ${formatShopName(input)} is currently open and will close at ${shopClosingTime.format("HH:mm")}.</p>`;
             } else {
-				return `The ${formatShopName(input)} is currently closed. It will open again at ${shopOpeningTime.format("HH:mm")} tomorrow.`
+				return `<p>${identityString} The ${formatShopName(input)} is currently closed. It will open again at ${shopOpeningTime.format("HH:mm")} tomorrow.</p>`
             } // end if/else
         } else {
-			return `The ${formatShopName(input)} is not open today.`;
+			return `<p>${identityString} The ${formatShopName(input)} is not open today.</p>`;
         } //end if/else
 	}, // end isOpen
 
 	getOpeningTime: input => {
-		return `The ${formatShopName(input)} opens at ${moment(ShopTimesObject[input.split(" ")[1]][input.split(" ")[0]]["opening_time"], "hmm").format("HH:mm")}.`;
+		return `<p>${identityString} The ${formatShopName(input)} opens at ${moment(ShopTimesObject[input.split(" ")[1]][input.split(" ")[0]]["opening_time"], "hmm").format("HH:mm")}.</p>`;
 	}, // end getOpeningTime
 
 	getClosingTime: input => {
-		return `The ${formatShopName(input)} closes at ${moment(ShopTimesObject[input.split(" ")[1]][input.split(" ")[0]]["closing_time"], "hmm").format("HH:mm")}.`;
+		return `<p>${identityString} The ${formatShopName(input)} closes at ${moment(ShopTimesObject[input.split(" ")[1]][input.split(" ")[0]]["closing_time"], "hmm").format("HH:mm")}.</p>`;
 	} // end getClosingTime
 };
 

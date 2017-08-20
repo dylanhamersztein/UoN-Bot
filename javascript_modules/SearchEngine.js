@@ -1,7 +1,7 @@
 // for reading in files
 const fs = require("fs");
 
-// for searching the locally stored CS webpages
+// for searching the locally stored CS web-pages
 const findInFiles = require("find-in-files");
 
 // for dealing with cookies
@@ -9,6 +9,8 @@ const Cookies = require("cookies");
 
 // for returning URLs to user
 let fileNamesToLinks;
+
+let identityString = "UoN-Bot:";
 
 // class variables for consistent cookie naming
 let searchTermCookieName = "searchTerm", currentPageCookieName = "currentPage";
@@ -38,22 +40,24 @@ const SearchEngine = {
 				});
 
 				// preparing the return string
-				toReturn = "Your search has returned the following results:\n";
+				toReturn = `<p>${identityString} Your search has returned the following results:</p>\n`;
 
 				// compiling all lines with the highest tf-idf score
 				results[allMatchedFiles[pageIndex]].line.forEach(foundLine => {
 					// filtering out unwanted things that the html-to-text library didn't
 					if (!/(\[javascript:|search this section|email this page|you are here:|main menu)/gi.test(foundLine) && foundLine !== foundLine.toUpperCase() && foundLine !== "") {
-						toReturn += `${foundLine.trim()}\n`;
+						toReturn += `<p>${foundLine.trim()}</p>\n`;
 					} // end if
 				});
 
+				let resourceURL = `<a href="${fileNamesToLinks[allMatchedFiles[pageIndex].split("\\")[2]]}" target="_blank">${fileNamesToLinks[allMatchedFiles[pageIndex].split("\\")[2]]}</a>`;
+
 				// return a link to the page on which the match was found
-				toReturn += `These results were found at: ${fileNamesToLinks[allMatchedFiles[pageIndex].split("\\")[2]]}. This is page ${pageIndex + 1} of ${allMatchedFiles.length}.`;
+				toReturn += `<p>${identityString} These results were found at: ${resourceURL}. This is page ${pageIndex + 1} of ${allMatchedFiles.length}.</p>`;
 
 				// checking whether there is more than one matched page and informing the user
 				if (allMatchedFiles.length > 1 && pageIndex < allMatchedFiles.length - 1) {
-					toReturn += "\nWould you like to see results from the next most relevant page? [Y/N]";
+					toReturn += `\n<p>${identityString} Would you like to see results from the next most relevant page? [Y/N]</p>`;
 
 					cookies.set(SearchEngine.moduleCookieName, "wantsNextPage");
 					cookies.set(searchTermCookieName, searchTerm);
@@ -64,7 +68,7 @@ const SearchEngine = {
 					cookies.set(searchTermCookieName, "", {"expires": new Date(0)});
 					cookies.set(currentPageCookieName, "", {"expires": new Date(0)});
 				}// end if
-			} else toReturn = "Unfortunately your search did not return any results. Please revise your search term.";
+			} else toReturn = `<p>${identityString} Unfortunately your search did not return any results. Please revise your search term.</p>`;
 
 			// sending a response back to the user back to the user
 			serverResponse.writeHead(200, {"Content-Type": "text/plain"});
@@ -91,12 +95,12 @@ const SearchEngine = {
 
 				// confirming user's choice
 				serverResponse.writeHead(200, {"Content-Type": "text/plain"});
-				serverResponse.end("The next page will not be retrieved. Is there anything else you want to ask me?");
+				serverResponse.end(`<p>${identityString} The next page will not be retrieved. Is there anything else you want to ask me?</p>`);
 				break;
 			default:
 				// informing user of bad input
 				serverResponse.writeHead(200, {"Content-Type": "text/plain"});
-				serverResponse.end("Please only answer the question with 'Y' or 'N'.");
+				serverResponse.end(`<p>${identityString} Please only answer the question with 'Y' or 'N'.</p>`);
 		} // end switch
 	}
 };

@@ -1,7 +1,7 @@
 {
   "q1": {
     "number": 1,
-    "question": "Please be aware that this serves undergraduate progression rules only.\nYou can also stop using this module at any time by typing 'EXIT'.\nDo I have pass marks in all modules this academic year? [Y/N]",
+    "question": "Please be aware that this serves undergraduate progression rules only.</p>\n<p>You can also stop using this module at any time by typing 'EXIT'.</p>\n<p>Do I have pass marks in all modules this academic year? [Y/N]</p>",
     "Y": "progress",
     "N": "q2"
   },

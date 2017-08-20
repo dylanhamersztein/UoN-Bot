@@ -7,6 +7,8 @@ const Cookies = require("cookies");
 // URL of the staff search API
 const baseURL = "http://ws.nottingham.ac.uk/person-search/v1.0/staff/";
 
+let identityString = "UoN-Bot:";
+
 // creates a string with every name returned by this query
 const listNames = resultObject => {
     let toReturn = "";
@@ -18,22 +20,22 @@ const listNames = resultObject => {
 
 		// determining whether or not to end the string
         index < resultObject.results.length - 1 ?
-            toReturn += currentValue._givenName + " " + currentValue._surname + ", "
+			toReturn += `${currentValue._givenName} ${currentValue._surname}, `
             :
-            toReturn += " or " + currentValue._givenName + " " + currentValue._surname + "?";
+			toReturn += ` or ${currentValue._givenName} ${currentValue._surname}?`;
     });
-    return toReturn.trim();
+	return toReturn.trim()
 };
 
 // creates a readable string to denote what the user asked for
 const doFormat = reqInfo => {
     switch (reqInfo) {
         case "_email":
-            return "an email address";
+			return "email address";
         case "_externalPhone":
-            return "a phone number";
+			return "phone number";
         case "_department":
-            return "a department";
+			return "department";
     }
 };
 
@@ -58,13 +60,20 @@ const StaffSearch = {
 
             // checking if anything was returned and returning appropriate result
             if (resultObject.meta.noResults === 1) {
-                // checking whether the required information is listed for this staff member
+				let infoToReturn;
+
+				// creating a link to e-mail address if necessary
+				requiredInfo === "_email" ? infoToReturn = `<a href="mailto:${resultObject.results[0][requiredInfo]}" target="_blank">${resultObject.results[0][requiredInfo]}</a>`
+					:
+					infoToReturn = resultObject.results[0][requiredInfo];
+
+				// checking whether the required information is listed for this staff member
                 resultObject.results[0][requiredInfo] !== '' ?
-					responseString = `${staffName}'s ${doFormat(requiredInfo)} is ${resultObject.results[0][requiredInfo]}.`
+					responseString = `<p>${identityString} ${staffName}'s ${doFormat(requiredInfo)} is ${infoToReturn}.</p>`
                     :
-					responseString = `Unfortunately ${doFormat(requiredInfo)} is not listed for ${staffName}.`;
+					responseString = `<p>${identityString} Unfortunately a/an ${doFormat(requiredInfo)} is not listed for ${staffName}.</p>`;
             } else if (resultObject.meta.noResults === 0) {
-                responseString = "Unfortunately your search did not return any results. Please make sure your search term is spelled correctly."
+				responseString = `<p>${identityString} Unfortunately your search did not return any results. Please make sure your search term is spelled correctly.</p>`;
             } else {
                 let cookies = new Cookies(serverRequest, serverResponse);
 
@@ -73,7 +82,7 @@ const StaffSearch = {
                 cookies.set(StaffSearch.reqInfoCookieName, requiredInfo);
 
                 // prompting user to select a single name
-				responseString = `Your search has returned multiple matches, which member of staff did you mean? Please enter their full name.\n${listNames(resultObject)}`
+				responseString = `<p>${identityString} Your search has returned multiple matches, which member of staff did you mean? Please enter their full name.</p>\n<p>${listNames(resultObject)}</p>`
             } // end if/else
 
             // sending response back to user

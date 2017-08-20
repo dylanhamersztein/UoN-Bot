@@ -7,6 +7,9 @@ const Cookies = require("cookies");
 // holds contents of the relevant JSON file
 let questionsObject;
 
+// variable for the bot's identity string
+let identityString = "UoN-Bot:";
+
 const DegreeProgression = {
 	cookieName: "degreeProgression",
 
@@ -30,7 +33,7 @@ const DegreeProgression = {
 
 		// sending the first question to the user
 		serverResponse.writeHead(200, {"Content-Type": "text/plain"});
-		serverResponse.end(questionsObject.q1.question);
+		serverResponse.end(`<p>${identityString} ${questionsObject.q1.question}`);
 	}, // end getFirstQuestion
 
 	getNextQuestion: (userInput, serverRequest, serverResponse) => {
@@ -55,7 +58,7 @@ const DegreeProgression = {
 
 			// sending the next question to the user
 			serverResponse.writeHead(200, {"Content-Type": "text/plain"});
-			serverResponse.end(nextQuestion.question);
+			serverResponse.end(`<p>${identityString} ${nextQuestion.question}</p>`);
 		} else if (userInput === "EXIT") {
 			// user has chosen to exit this process so all cookies are deleted
 			cookies.set(DegreeProgression.cookieName, "", {"expires": new Date(0)});
@@ -63,11 +66,11 @@ const DegreeProgression = {
 
 			// confirming to the user that the process is over
 			serverResponse.writeHead(200, {"Content-Type": "text/plain"});
-			serverResponse.end("Degree progression module exited. Is there anything else you want to ask me?");
+			serverResponse.end(`<p>${identityString} Degree progression module exited. Is there anything else you want to ask me?</p>`);
 		} else {
 			// sending error message
 			serverResponse.writeHead(200, {"Content-Type": "text/plain"});
-			serverResponse.end("Please answer the question with only Y or N.");
+			serverResponse.end(`<p>${identityString} Please answer the question with only Y or N.</p>`);
 		} // end if/else
 	} // end getNextQuestion
 }; // end DegreeProgression

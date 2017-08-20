@@ -1,6 +1,8 @@
 // for manipulating cookies
 const Cookies = require("cookies");
 
+let identityString = "UoN-Bot:";
+
 const ModuleProgression = {
 	// name of the cookie used by this module
 	cookieName: "moduleProgression",
@@ -9,13 +11,11 @@ const ModuleProgression = {
 	userCommand: "MODULE PROGRESSION",
 
 	// instructions text for usage of this module
-	instructionText: "Please enter your grades and their value in the module in the following format, " +
-	"with each assessment being a new line in the format below.\n" +
-	"[achieved grade] [value of grade in module]\n" +
-	"If you want to know what you need to get in the final assessment of a module to reach a particular grade, " +
-	"enter the following additional information on a new line and press 'Submit'.\n" +
-	"[name of assessment] [value of assessment in module] [target grade for module]\n" +
-	"You can also stop using this module at any time by typing 'EXIT'.",
+	instructionText: `<p>${identityString} Please enter your grades and their value in the module in the following format, with each assessment being a new line in the format below.</p>\n` +
+	"<p>[achieved grade] [value of grade in module]</p>\n" +
+	"<p>If you want to know what you need to get in the final assessment of a module to reach a particular grade, enter the following additional information on a new line and press 'Submit'.</p>\n" +
+	"<p>[name of assessment] [value of assessment in module] [target grade for module]</p>\n" +
+	"<p>You can also stop using this module at any time by typing 'EXIT'.</p>",
 
 	// function to send the instructional text found above to the user
 	getInstructionText: (serverRequest, serverResponse) => {
@@ -48,11 +48,10 @@ const ModuleProgression = {
 			// splitting the input into individual assessments
 			let assessments = input.split("\n");
 
-			// splitting the grades from their values in the module
-			// and adding weighted result to cumulative total
-			for (let i in assessments) {
+			// splitting the grades from their values in the module and adding weighted result to cumulative total
+			assessments.forEach((value) => {
 				// splitting each line into its component numbers
-				let results = assessments[i].split(" ");
+				let results = value.split(" ");
 
 				// checking whether the current line starts with the name of an assessment or just a number
 				if (String(results[0].match(/^\d/)) > 0) {
@@ -62,10 +61,10 @@ const ModuleProgression = {
 					toCalcWeight = Number(results[1]);
 					desiredModuleGrade = Number(results[2]);
 				} // end if/else
-			} // end for
+			});
 
 			// showing user's current progress in module by default
-			let responseString = `Your current progress for this module is ${currentProgress}%.`;
+			let responseString = `<p>${identityString} Your current progress for this module is <strong>${currentProgress}%</strong>.`;
 
 			// calculating required grade on final assessment if the information to do so exists
 			if (toCalcName !== "" && toCalcWeight > 0 && desiredModuleGrade > 0) {
@@ -73,9 +72,9 @@ const ModuleProgression = {
 				toCalcGrade = (desiredModuleGrade - currentProgress) / (toCalcWeight / 100);
 
 				toCalcGrade <= 100 ?
-					responseString += ` In order to achieve ${desiredModuleGrade}% overall, you must get ${toCalcGrade}% in ${toCalcName}.`
+					responseString += ` In order to achieve <strong>${desiredModuleGrade}%</strong> overall, you must get <strong>${toCalcGrade}%</strong> in <strong>${toCalcName.toLowerCase()}</strong>.</p>`
 					:
-					responseString += ` Unfortunately it is not possible for you to reach your desired grade of ${desiredModuleGrade}% with the remaining assessment, as you would need to achieve ${toCalcGrade}% in ${toCalcName}.`;
+					responseString += ` Unfortunately it is not possible for you to reach your desired grade of <strong>${desiredModuleGrade}%</strong> with the remaining assessment, as you would need to achieve <strong>${toCalcGrade}%</strong>> in <strong>${toCalcName.toLowerCase()}</strong>.</p>`;
 			} // end if
 
 			// deleting the relevant cookie
@@ -90,7 +89,7 @@ const ModuleProgression = {
 
 			// calculating and sending user's progression back to client
 			serverResponse.writeHead(200, {"Content-Type": "text/plain"});
-			serverResponse.end("Module progression exited. Is there anything else you want to ask me?");
+			serverResponse.end(`<p>${identityString} Module progression exited. Is there anything else you want to ask me?</p>`);
 		} // end if/else
 	} // end calculateProgression
 }; // end ModuleProgression
