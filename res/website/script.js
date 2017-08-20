@@ -59,36 +59,37 @@ function getBotReply(input, callback) {
 	});
 } // end getBotReply
 
-function addChat(string, messageType) {
+function addChat(chatString, messageType) {
 	// used to indicate who sent the message in the chat
-	let identityString;
+	let textToDisplay;
 
 	// creating a row to add into the table and setting its padding
-	let childDiv = document.createElement("div");
-	childDiv.setAttribute("padding-bottom", "10px");
+	let chatBubbleDiv = document.createElement("div");
+	chatBubbleDiv.setAttribute("padding-bottom", "10px");
 
 	// determining where to align the message in the chatbox
 	if (messageType === USER_MESSAGE) {
-		childDiv.setAttribute("align", "right");
-		identityString = "User: "
+		chatBubbleDiv.setAttribute("align", "right");
+
+		// creating a paragraph element and adding user input into it
+		textToDisplay = document.createElement("p");
+		textToDisplay.appendChild(document.createTextNode(`User: ${chatString}`));
 	} else if (messageType === BOT_MESSAGE) {
-		childDiv.setAttribute("align", "left");
-		identityString = "UoN-Bot: "
+		chatBubbleDiv.setAttribute("align", "left");
+
+		// creating element from UoN-Bot's HTML string response
+		textToDisplay = new DOMParser().parseFromString(chatString, 'text/html').body.firstChild;
 	} // end if/else
 
-	// creating a paragraph element and adding user input into it
-	let p = document.createElement("p");
-	p.appendChild(document.createTextNode(identityString.concat(string)));
-
-	// setting attributes that define how the message will be displayed
-	p.setAttribute("id", messageType);
-	p.setAttribute("class", "message");
+	// setting attributes of displayed text
+	textToDisplay.setAttribute("id", messageType);
+	textToDisplay.setAttribute("class", "message");
 
 	// chaining new nodes together
-	childDiv.appendChild(p);
+	chatBubbleDiv.appendChild(textToDisplay);
 
 	// displaying user input in the chatbox div on a new line each time
-	chatboxDiv.appendChild(childDiv);
+	chatboxDiv.appendChild(chatBubbleDiv);
 
 	// scrolling to the bottom of the chatbox automatically
 	chatboxDiv.scrollTop = chatboxDiv.scrollHeight;
