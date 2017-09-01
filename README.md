@@ -1,5 +1,5 @@
 # UoN-Bot
-An AIML chatbot designed for use by students at the University of Nottingham.
+An AIML chatbot designed for use by students at the University of Nottingham, written in Node.js.
 
 This bot is capable of returning information about bus schedules, availability of publicly usable PCs, staff contact details, and shop opening times. UoN-Bot can also calculate users' current progress in a given module, as well as ascertain whether or not a student can progress to the next stage of their Computer Science degree.
 
