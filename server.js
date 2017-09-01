@@ -45,9 +45,11 @@ fs.readdir("./res/compsciwebsite", (err, files) => {
 // for searching through the computer science web-pages
 const SearchEngine = require("./javascript_modules/SearchEngine");
 
-// initialising the AIML intepreter and loading files into it
+// initialising the AIML interpreter and loading files into it
 let aimlInterpreter = new AIMLInterpreter({name: "UoN-Bot", age: "100"});
-aimlInterpreter.loadAIMLFilesIntoArray(["./bot_brain/Brain.aiml"]);
+aimlInterpreter.loadAIMLFilesIntoArray([
+	"./bot_brain/brain.aiml"
+]);
 
 // server listening port
 const port = 9000;
@@ -145,7 +147,7 @@ const server = (request, response) => {
 						response.writeHead(200, {"Content-Type": "text/plain"});
 						response.end("Sorry, I didn't quite understand what you were saying there.");
 					} else if (answer.substring(0, 6) === "SCRIPT") {
-						// extracting and evaluating the code from its identifier in Brain.aiml
+						// extracting and evaluating the code from its identifier in brain.aiml
 						let evalResult = eval(answer.split(":")[1]);
 
 						// if evalResult is undefined then the server response was sent from inside an asynchronous method

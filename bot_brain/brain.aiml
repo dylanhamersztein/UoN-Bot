@@ -663,71 +663,6 @@
         </template>
     </category>
 
-    <!-- for enquiries about staff details -->
-    <category>
-        <pattern>WHAT IS *'S EMAIL</pattern>
-        <template>
-            SCRIPT:StaffSearch.search(wildCardArray[0],"_email",request,response);
-        </template>
-    </category>
-
-    <category>
-        <pattern>WHAT IS *'S EMAIL ADDRESS</pattern>
-        <template>
-            SCRIPT:StaffSearch.search(wildCardArray[0],"_email",request,response);
-        </template>
-    </category>
-
-    <category>
-        <pattern>WHAT IS *'S PHONE NUMBER</pattern>
-        <template>
-            SCRIPT:StaffSearch.search(wildCardArray[0],"_externalPhone",request,response);
-        </template>
-    </category>
-
-    <category>
-        <pattern>WHAT IS *'S NUMBER</pattern>
-        <template>
-            SCRIPT:StaffSearch.search(wildCardArray[0],"_externalPhone",request,response);
-        </template>
-    </category>
-
-    <category>
-        <pattern>WHAT DEPARTMENT IS * IN</pattern>
-        <template>
-            SCRIPT:StaffSearch.search(wildCardArray[0],"_department",request,response);
-        </template>
-    </category>
-
-    <category>
-        <pattern>WHAT IS *'S DEPARTMENT</pattern>
-        <template>
-            SCRIPT:StaffSearch.search(wildCardArray[0],"_department",request,response);
-        </template>
-    </category>
-
-    <!-- shop opening times -->
-    <category>
-        <pattern>IS THE * OPEN</pattern>
-        <template>
-            SCRIPT:ShopTimes.isOpen(wildCardArray[0]);
-        </template>
-    </category>
-
-    <category>
-        <pattern>WHEN DOES THE * OPEN</pattern>
-        <template>
-            SCRIPT:ShopTimes.getOpeningTime(wildCardArray[0]);
-        </template>
-    </category>
-
-    <category>
-        <pattern>WHEN DOES THE * CLOSE</pattern>
-        <template>
-            SCRIPT:ShopTimes.getClosingTime(wildCardArray[0]);
-        </template>
-    </category>
-
     <!-- campus PC availability -->
     <category>
         <pattern>HOW MANY PCS ARE AVAILABLE AT COATES</pattern>
@@ -1887,6 +1822,71 @@
         <pattern>SEARCH *</pattern>
         <template>
             SCRIPT:SearchEngine.doSearch(wildCardArray[0],request,response,0);
+        </template>
+    </category>
+
+    <!-- for enquiries about staff details -->
+    <category>
+        <pattern>WHAT IS *'S EMAIL</pattern>
+        <template>
+            SCRIPT:StaffSearch.search(wildCardArray[0],"_email",request,response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS *'S EMAIL ADDRESS</pattern>
+        <template>
+            SCRIPT:StaffSearch.search(wildCardArray[0],"_email",request,response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS *'S PHONE NUMBER</pattern>
+        <template>
+            SCRIPT:StaffSearch.search(wildCardArray[0],"_externalPhone",request,response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS *'S NUMBER</pattern>
+        <template>
+            SCRIPT:StaffSearch.search(wildCardArray[0],"_externalPhone",request,response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT DEPARTMENT IS * IN</pattern>
+        <template>
+            SCRIPT:StaffSearch.search(wildCardArray[0],"_department",request,response);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT IS *'S DEPARTMENT</pattern>
+        <template>
+            SCRIPT:StaffSearch.search(wildCardArray[0],"_department",request,response);
+        </template>
+    </category>
+
+    <!-- shop opening times -->
+    <category>
+        <pattern>IS THE * OPEN</pattern>
+        <template>
+            SCRIPT:ShopTimes.isOpen(wildCardArray[0]);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHEN DOES THE * OPEN</pattern>
+        <template>
+            SCRIPT:ShopTimes.getOpeningTime(wildCardArray[0]);
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHEN DOES THE * CLOSE</pattern>
+        <template>
+            SCRIPT:ShopTimes.getClosingTime(wildCardArray[0]);
         </template>
     </category>
 </aiml>

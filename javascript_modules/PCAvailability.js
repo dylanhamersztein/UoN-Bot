@@ -73,10 +73,10 @@ const PCAvailability = {
 
 	getAvailablePCs: (pcLocation, serverResponse) => {
 		// extracting the right link from the PCLocationObject object
-		let pcFinderLinks = PCLocationObject[pcLocation]["links"];
+		let pcLocationLinks = PCLocationObject[pcLocation]["links"];
 
 		// looping over all the urls found in the object
-		pcFinderLinks.forEach((currentElement) => {
+		pcLocationLinks.forEach((currentElement) => {
 			// making each request individually
 			getAvailabilityInformation(pcLocation, currentElement, result => {
 				// defing a string in which to store the response surrounded by HTML paragraph tags
@@ -92,7 +92,7 @@ const PCAvailability = {
 				asyncCallResultsArray.push(responseString.trim());
 
 				// checking whether all calls have returned (there will be as many responses as there were links passed into the method)
-				if (asyncCallResultsArray.length === pcFinderLinks.length) {
+				if (asyncCallResultsArray.length === pcLocationLinks.length) {
 					// adding more information the beginning of the array
 					asyncCallResultsArray.unshift(`<p>${identityString} Information for <strong>${PCLocationObject[pcLocation]["locationName"]}:</strong></p>`);
 
@@ -159,7 +159,7 @@ const PCAvailability = {
 						serverResponse.writeHead(200, {"Content-Type": "text/plain"});
 						serverResponse.end(`<p><strong>${PCLocationObject[distanceSortedLocations[index]]["locationName"]}</strong> is your nearest location and has <strong>${results[0][distanceSortedLocations[index]]["free"]}</strong> available PCs in <strong>${results[0][distanceSortedLocations[index]]["location"]}</strong>.</p>`);
 					} else {
-						// recursing to the next location
+						// recursively calling the method again to check the next location
 						checkAvailabilityRecursively();
 					} // end if/else
 				}));

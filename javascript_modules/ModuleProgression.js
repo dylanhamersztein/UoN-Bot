@@ -32,7 +32,6 @@ const ModuleProgression = {
 
 	// function to fill the grades array
 	calculateProgression: (input, serverRequest, serverResponse) => {
-		// creating a cookie object to keep track of state
 		let cookies = new Cookies(serverRequest, serverResponse);
 
 		if (input !== "EXIT") {
